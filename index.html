@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anushrut Ghimire | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; scroll-behavior: smooth; }
+        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .gradient-text { background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-link:hover { color: #38bdf8; transition: 0.3s; }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 glass py-4 px-6 flex justify-between items-center">
+        <h1 class="text-xl font-bold gradient-text">MeChingee</h1>
+        <div class="space-x-6 hidden md:flex">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#research" class="nav-link">Certificates</a>
+            <a href="https://blog-two-silk-45.vercel.app/" class="nav-link">Blog</a>
+        </div>
+        <a href="Anushrut_CV.pdf" target="_blank" class="bg-blue-1000 hover:bg-blue-1200 px-4 py-2 rounded-lg text-sm transition">View CV</a>
+    </nav>
+
+    <section id="home" class="h-screen flex flex-col justify-center items-center text-center px-4">
+        <div data-aos="zoom-in" class="mb-6">
+            <img src="anushrut1.jpg" alt="Anushrut Ghimire" class="w-40 h-40 rounded-full border-4 border-blue-500 shadow-xl object-cover">
+        </div>
+        <h2 data-aos="fade-up" class="text-5xl md:text-7xl font-extrabold mb-4">Hi, I'm <span class="gradient-text">Anushrut</span></h2>
+        <p data-aos="fade-up" data-aos-delay="200" class="max-w-2xl text-gray-400 text-lg">
+            Highly motivated science student with a strong academic foundation in Computer Science and Technology, 
+            passionate about theoretical innovation and independent research.
+        </p>
+        <div data-aos="fade-up" data-aos-delay="400" class="mt-8 space-x-4">
+            <a href="#certificates" class="bg-white text-slate-900 px-6 py-3 rounded-full font-bold hover:scale-105 transition inline-block">My Certificate</a>
+            <a href="mailto:anushrutghimire7@gmail.com" class="border border-gray-500 px-6 py-3 rounded-full font-bold hover:bg-gray-800 transition inline-block">Contact Me</a>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-6 max-w-5xl mx-auto">
+        <h3 data-aos="fade-right" class="text-3xl font-bold mb-10 border-l-4 border-blue-500 pl-4">Introduction & Education</h3>
+        <div class="grid md:grid-cols-2 gap-10">
+            <div data-aos="fade-up" class="glass p-6 rounded-2xl">
+                <h4 class="text-blue-400 font-bold mb-2">Bio</h4>
+                <p class="text-gray-300 leading-relaxed">
+                   I am Anushrut Ghimire, a highly motivated science student and self-directed researcher with a strong academic foundation in Computer Science and Mathematics. Driven by a passion for theoretical innovation, I explore the intersection of technology and physical systems—from conceptualizing Magnetic Propulsion Systems to studying AI Governance and Cybersecurity. I combine technical proficiency in C and Kali Linux with a lifetime commitment to humanitarian values through the Nepal Red Cross Society. My goal is to turn complex ideas into simple, secure, and future-ready solutions.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200" class="glass p-6 rounded-2xl">
+                <h4 class="text-blue-400 font-bold mb-2">Education</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><strong>+2 Computer Science</strong> | Valmiki Shiksha Sadan (GPA: 3.46) </li>
+                    <li><strong>SEE Science</strong> | Small Heaven School (GPA: 3.35) </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+<section id="skills" class="py-20 bg-slate-900/50">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+
+    <h3 data-aos="fade-up" class="text-3xl font-bold mb-12">
+      Technical & Professional Skills
+    </h3>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+      <!-- Python -->
+      <div data-aos="flip-left"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fab fa-python text-4xl mb-4 text-yellow-400"></i>
+        <p>Python Programming</p>
+        <span class="text-sm text-gray-400">Basics • Automation • Logic</span>
+      </div>
+
+      <!-- C -->
+      <div data-aos="flip-left" data-aos-delay="100"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-code text-4xl mb-4 text-blue-400"></i>
+        <p>C Programming</p>
+        <span class="text-sm text-gray-400">Structures • Memory • Logic</span>
+      </div>
+
+      <!-- Kali -->
+      <div data-aos="flip-left" data-aos-delay="200"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fab fa-linux text-4xl mb-4 text-white"></i>
+        <p>Kali Linux</p>
+        <span class="text-sm text-gray-400">Security • CLI • Tools</span>
+      </div>
+
+      <!-- AI -->
+      <div data-aos="flip-left" data-aos-delay="300"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-brain text-4xl mb-4 text-purple-400"></i>
+        <p>Multi-Agent AI</p>
+        <span class="text-sm text-gray-400">Agents • Automation • Logic</span>
+      </div>
+
+      <!-- Wireshark -->
+      <div data-aos="flip-left" data-aos-delay="400"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-network-wired text-4xl mb-4 text-cyan-400"></i>
+        <p>Wireshark</p>
+        <span class="text-sm text-gray-400">Traffic Analysis • Anomalies</span>
+      </div>
+
+      <!-- Data Analysis -->
+      <div data-aos="flip-left" data-aos-delay="500"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-chart-line text-4xl mb-4 text-green-400"></i>
+        <p>Data Analysis</p>
+        <span class="text-sm text-gray-400">Excel • Visualization</span>
+      </div>
+
+      <!-- Google Analytics -->
+      <div data-aos="flip-left" data-aos-delay="600"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fab fa-google text-4xl mb-4 text-red-400"></i>
+        <p>Google Analytics</p>
+        <span class="text-sm text-gray-400">Tracking • Reports</span>
+      </div>
+
+      <!-- Cybersecurity -->
+      <div data-aos="flip-left" data-aos-delay="700"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-shield-alt text-4xl mb-4 text-indigo-400"></i>
+        <p>Cybersecurity</p>
+        <span class="text-sm text-gray-400">Network • Ethical Hacking</span>
+      </div>
+
+      <!-- Compliance -->
+      <div data-aos="flip-left" data-aos-delay="800"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-balance-scale text-4xl mb-4 text-yellow-300"></i>
+        <p>AI Governance</p>
+        <span class="text-sm text-gray-400">Ethics • Compliance</span>
+      </div>
+
+      <!-- UN / Safety -->
+      <div data-aos="flip-left" data-aos-delay="900"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-globe text-4xl mb-4 text-blue-300"></i>
+        <p>UN Safety Policy</p>
+        <span class="text-sm text-gray-400">WAM • Risk • DDR</span>
+      </div>
+
+      <!-- Nanotech -->
+      <div data-aos="flip-left" data-aos-delay="1000"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-atom text-4xl mb-4 text-pink-400"></i>
+        <p>Nanomaterials Safety</p>
+        <span class="text-sm text-gray-400">Lab • Risk • Protocol</span>
+      </div>
+
+      <!-- Research -->
+      <div data-aos="flip-left" data-aos-delay="1100"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-search text-4xl mb-4 text-orange-400"></i>
+        <p>Technical Research</p>
+        <span class="text-sm text-gray-400">Analysis • Reporting</span>
+      </div>
+
+      <!-- Communication -->
+      <div data-aos="flip-left" data-aos-delay="1200"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-comments text-4xl mb-4 text-teal-400"></i>
+        <p>Professional Communication</p>
+        <span class="text-sm text-gray-400">Presentation • Teamwork</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+ <section id="certificates" class="py-20 px-6 max-w-5xl mx-auto">
+
+  <h3 data-aos="fade-right"
+      class="text-3xl font-bold mb-10 border-l-4 border-blue-500 pl-4">
+    Certifications
+  </h3>
+
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <!-- UNITAR / UN -->
+    <div data-aos="fade-up"
+         class="glass p-6 rounded-3xl border-t-4 border-blue-500">
+
+      <h4 class="text-xl font-bold mb-4">UNITAR / United Nations</h4>
+
+      <ul class="space-y-3 text-gray-300 text-sm">
+
+        <li>
+          <a href="/certs/Certificate_of_Completion.pdf"
+             target="_blank"
+             class="hover:text-blue-400 transition">
+
+            Effective Weapons & Ammunition Management (WAM & DDR)
+          </a>
+        </li>
+
+        <li>
+          <a href="/certs/Nanomaterials_Safety_Certificate.pdf"
+             target="_blank"
+             class="hover:text-blue-400 transition">
+
+            Nanomaterials Safety
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- Coursera -->
+    <div data-aos="fade-up" data-aos-delay="100"
+         class="glass p-6 rounded-3xl border-t-4 border-blue-500">
+
+      <h4 class="text-xl font-bold mb-4">Coursera</h4>
+
+      <ul class="space-y-3 text-gray-300 text-sm">
+
+        <li>
+          <a href="/certs/Coursera 0RE44UPGLV9Q.pdf"
+             target="_blank"
+             class="hover:text-blue-400 transition">
+
+            Overview of Data Visualization
+          </a>
+        </li>
+
+        <li>
+          <a href="/certs/Coursera N2TZZUMKATR9.pdf"
+             target="_blank"
+             class="hover:text-blue-400 transition">
+
+            Wireshark: Detect Network Anomalies
+          </a>
+        </li>
+
+        <li>
+          <a href="/certs/Coursera QIYEWGMCTZ0H.pdf"
+             target="_blank"
+             class="hover:text-blue-400 transition">
+
+            Data Analysis using Microsoft Excel
+          </a>
+        </li>
+
+        <li>
+          <a href="/certs/Coursera VHFHKDMIEZZ0.pdf"
+             target="_blank"
+             class="hover:text-blue-400 transition">
+
+            Getting Started in Google Analytics
+          </a>
+        </li>
+
+        <li>
+          <a href="/certs/Coursera YDTCDD19D3VJ.pdf"
+             target="_blank"
+             class="hover:text-blue-400 transition">
+
+            Construct Stock Market Indices
+          </a>
+        </li>
+
+        <li>
+          <a href="/certs/Coursera YHZZN6RTFKZ3.pdf"
+             target="_blank"
+             class="hover:text-blue-400 transition">
+
+            Take you resume to the next level with Canva
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- Udemy -->
+    <div data-aos="fade-up" data-aos-delay="200"
+         class="glass p-6 rounded-3xl border-t-4 border-blue-500">
+
+      <h4 class="text-xl font-bold mb-4">Udemy</h4>
+
+      <ul class="space-y-3 text-gray-300 text-sm">
+
+        <li>
+          <a href="/certs/UC-d23878ec-83ec-410e-bd37-d6cd6d47cece.pdf"
+             target="_blank"
+             class="hover:text-blue-400 transition">
+
+            AI Governance & Compliance for HR
+          </a>
+        </li>
+
+        <li>
+          <a href="/certs/UC-f9c18bd1-e7df-4253-8e85-0d0ae5ad2ab5.pdf"
+             target="_blank"
+             class="hover:text-blue-400 transition">
+
+            Master Google ADK (Multi-Agent AI Systems)
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- Other -->
+    <div data-aos="fade-up" data-aos-delay="300"
+         class="glass p-6 rounded-3xl border-t-4 border-blue-500">
+
+      <h4 class="text-xl font-bold mb-4">Other</h4>
+
+      <ul class="space-y-3 text-gray-300 text-sm">
+
+        <li>
+          <a href="/certs/Certificate_Supporting_People_Living_with_Dementia_Introductory 2.pdf"
+             target="_blank"
+             class="hover:text-blue-400 transition">
+
+            Supporting People Living with Dementia (Introductory)
+          </a>
+        </li>
+
+        <li>
+          <a href="/certs/Know the OS.png"
+             target="_blank"
+             class="hover:text-blue-400 transition">
+
+            Know the OS – Ethical Hacking (HackerX)
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+
+</section>
+
+    <section class="py-20 bg-slate-900">
+        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-10">
+            <div data-aos="fade-right" class="glass p-8 rounded-2xl flex flex-col items-center text-center">
+                <h3 class="text-2xl font-bold mb-4">Check my Soical Media</h3>
+                <p class="text-gray-400 mb-6">For social media updates and insights</p>
+                <a href="https://anushrut.bio.link" class="text-blue-400 font-bold hover:underline">Visit  <i class="fas fa-external-link-alt ml-2"></i></a>
+            </div>
+            <div data-aos="fade-left" class="glass p-8 rounded-2xl flex flex-col items-center text-center">
+                <h3 class="text-2xl font-bold mb-4">My Resume</h3>
+                <p class="text-gray-400 mb-6">Want to see the full details of my academic journey?</p>
+                <a href="Anushrut_CV.pdf" class="bg-blue-600 px-6 py-2 rounded-lg hover:bg-blue-700 transition">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-gray-800">
+        <p class="text-gray-500 text-sm">© 2026 Anushrut Ghimire | Built with Passion & Technology</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>
