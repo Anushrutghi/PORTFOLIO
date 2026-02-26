@@ -22,7 +22,8 @@
             <a href="#home" class="nav-link">Home</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#skills" class="nav-link">Skills</a>
-            <a href="#research" class="nav-link">Certificates</a>
+            <!-- FIXED: Certificates link points to the actual section id -->
+            <a href="#certificates" class="nav-link">Certificates</a>
             <a href="https://blog-two-silk-45.vercel.app/" class="nav-link">Blog</a>
         </div>
         <a href="Anushrut1_CV.pdf" target="_blank" class="bg-blue-1000 hover:bg-blue-1200 px-4 py-2 rounded-lg text-sm transition">View CV</a>
@@ -34,7 +35,7 @@
         </div>
         <h2 data-aos="fade-up" class="text-5xl md:text-7xl font-extrabold mb-4">Hi, I'm <span class="gradient-text">Anushrut</span></h2>
         <p data-aos="fade-up" data-aos-delay="200" class="max-w-2xl text-gray-400 text-lg">
-            Highly motivated science student with a strong academic foundation in Computer Science and Technology, 
+            Highly motivated science student with a strong academic foundation in Computer Science and Technology,
             passionate about theoretical innovation and independent research.
         </p>
         <div data-aos="fade-up" data-aos-delay="400" class="mt-8 space-x-4">
@@ -51,6 +52,11 @@
                 <p class="text-gray-300 leading-relaxed">
                    I am Anushrut Ghimire, a highly motivated science student and self-directed researcher with a strong academic foundation in Computer Science and Mathematics. Driven by a passion for theoretical innovation, I explore the intersection of technology and physical systems—from conceptualizing Magnetic Propulsion Systems to studying AI Governance and Cybersecurity. I combine technical proficiency in C and Kali Linux with a lifetime commitment to humanitarian values through the Nepal Red Cross Society. My goal is to turn complex ideas into simple, secure, and future-ready solutions.
                 </p>
+
+                <!-- Added (no layout change): latest course mention -->
+                <p class="text-gray-400 text-sm mt-3">
+                    Latest: Ethical Hacking with Kali Linux (IBM, Coursera) — Feb 26, 2026
+                </p>
             </div>
             <div data-aos="fade-up" data-aos-delay="200" class="glass p-6 rounded-2xl">
                 <h4 class="text-blue-400 font-bold mb-2">Education</h4>
@@ -61,6 +67,7 @@
             </div>
         </div>
     </section>
+
 <section id="skills" class="py-20 bg-slate-900/50">
   <div class="max-w-5xl mx-auto px-6 text-center">
 
@@ -166,20 +173,44 @@
         <span class="text-sm text-gray-400">Analysis • Reporting</span>
       </div>
 
-      
-  
- <!-- Communication -->
-
+      <!-- Communication -->
       <div data-aos="flip-left" data-aos-delay="1200"
-
            class="glass p-8 rounded-xl hover:border-blue-500 transition">
-
         <i class="fas fa-comments text-4xl mb-4 text-teal-400"></i>
-
         <p>Professional Communication</p>
-
         <span class="text-sm text-gray-400">Communication • Technical Articulation</span>
+      </div>
 
+      <!-- NEW: Ethical Hacking with Kali (associated with new Coursera certificate) -->
+      <div data-aos="flip-left" data-aos-delay="1300"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-user-secret text-4xl mb-4 text-lime-400"></i>
+        <p>Ethical Hacking</p>
+        <span class="text-sm text-gray-400">Kali • Basics • Practice</span>
+      </div>
+
+      <!-- NEW: Recon & Scanning -->
+      <div data-aos="flip-left" data-aos-delay="1400"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-binoculars text-4xl mb-4 text-emerald-300"></i>
+        <p>Recon & Scanning</p>
+        <span class="text-sm text-gray-400">Footprinting • Discovery</span>
+      </div>
+
+      <!-- NEW: Linux Security Basics -->
+      <div data-aos="flip-left" data-aos-delay="1500"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-terminal text-4xl mb-4 text-sky-300"></i>
+        <p>Linux Security</p>
+        <span class="text-sm text-gray-400">Permissions • Hardening</span>
+      </div>
+
+      <!-- NEW: Vulnerability Awareness -->
+      <div data-aos="flip-left" data-aos-delay="1600"
+           class="glass p-8 rounded-xl hover:border-blue-500 transition">
+        <i class="fas fa-bug text-4xl mb-4 text-rose-300"></i>
+        <p>Vulnerability Basics</p>
+        <span class="text-sm text-gray-400">Common Flaws • Mitigation</span>
       </div>
 
   </div>
@@ -282,6 +313,16 @@
              class="hover:text-blue-400 transition">
 
             Take you resume to the next level with Canva
+          </a>
+        </li>
+
+        <!-- NEW CERTIFICATE ADDED -->
+        <li>
+          <a href="/Coursera J2PQ48M7QDMF.pdf"
+             target="_blank"
+             class="hover:text-blue-400 transition">
+
+            Ethical Hacking with Kali Linux (IBM)
           </a>
         </li>
 
