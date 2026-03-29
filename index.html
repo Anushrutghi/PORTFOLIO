@@ -4,388 +4,512 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anushrut Ghimire | Portfolio</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #ffffff;
+      --bg: #f8f8f5;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --light: #f0f0ec;
+      --border: #e5e5e0;
+      --accent: #2563eb;
+      --accent-bg: #eff6ff;
+    }
     html { scroll-behavior: smooth; }
     html, body { overflow-x: hidden; }
+    body { background: var(--white); color: var(--text); font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; }
 
-    body {
-      background-color: #0f172a;
-      color: #f8fafc;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont,
-        'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-        'Open Sans', 'Helvetica Neue', sans-serif;
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.94); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 6%; height: 68px;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: box-shadow 0.3s;
     }
-
-    img, iframe { max-width: 100%; height: auto; }
-
-    /* Glass Effect with Cross-Browser Support */
-    .glass {
-      background: rgba(30, 41, 59, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-
-      /* Blur Support */
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-
-      /* Fallback if blur not supported */
-      background-color: rgba(30, 41, 59, 0.85);
+    nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+    .nav-logo { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500; color: var(--muted);
+      transition: color 0.25s; position: relative;
     }
-
-    /* Gradient Text with Full Compatibility */
-    .gradient-text {
-      background: linear-gradient(90deg, #38bdf8, #818cf8);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 2px; background: var(--accent); border-radius: 2px; transition: width 0.3s;
     }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cv {
+      font-size: 0.82rem; font-weight: 600; color: var(--accent);
+      border: 1.5px solid var(--accent); padding: 8px 18px; border-radius: 8px;
+      transition: background 0.25s, color 0.25s;
+    }
+    .nav-cv:hover { background: var(--accent); color: #fff; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; position: fixed; top: 68px; left: 0; right: 0;
+      background: #fff; border-bottom: 1px solid var(--border);
+      padding: 24px 6%; flex-direction: column; gap: 16px; z-index: 99;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 0.9rem; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .mobile-menu a:hover { color: var(--accent); }
 
-    /* Smooth Nav Hover */
-    .nav-link { transition: color 0.3s ease; }
-    .nav-link:hover { color: #38bdf8; }
+    /* SHARED */
+    .section { padding: 96px 6%; }
+    .inner { max-width: 960px; margin: 0 auto; }
+    .sec-header { text-align: center; margin-bottom: 56px; }
+    .sec-header small { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 8px; }
+    .sec-header h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; }
+
+    /* HERO */
+    #home {
+      min-height: 100svh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 100px 6% 60px; background: var(--white);
+    }
+    .hero-wrap { max-width: 640px; }
+    .hero-photo {
+      width: 156px; height: 156px; border-radius: 50%; object-fit: cover;
+      border: 4px solid var(--border); margin-bottom: 28px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      animation: fadeDown 0.7s ease both;
+    }
+    .hero-fallback {
+      width: 156px; height: 156px; border-radius: 50%;
+      background: var(--accent-bg); border: 4px solid var(--border);
+      display: none; align-items: center; justify-content: center;
+      font-size: 3.2rem; color: var(--accent); margin: 0 auto 28px;
+      animation: fadeDown 0.7s ease both;
+    }
+    .hero-hi { font-size: 1rem; font-weight: 500; color: var(--muted); margin-bottom: 6px; animation: fadeUp 0.7s 0.15s ease both; opacity: 0; }
+    .hero-name { font-size: clamp(2.2rem, 7vw, 3.6rem); font-weight: 700; line-height: 1.1; margin-bottom: 16px; animation: fadeUp 0.7s 0.25s ease both; opacity: 0; }
+    .hero-name span { color: var(--accent); }
+    .hero-sub { font-size: 0.96rem; color: var(--muted); max-width: 500px; margin: 0 auto 36px; animation: fadeUp 0.7s 0.35s ease both; opacity: 0; }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; animation: fadeUp 0.7s 0.45s ease both; opacity: 0; }
+    .btn-solid {
+      background: var(--accent); color: #fff; font-size: 0.85rem; font-weight: 600;
+      padding: 13px 28px; border-radius: 10px; border: none; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-solid:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.25); background: #1d4ed8; }
+    .btn-outline {
+      background: transparent; color: var(--text); font-size: 0.85rem; font-weight: 600;
+      padding: 12px 26px; border-radius: 10px; border: 1.5px solid var(--border); cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .hero-icons { display: flex; gap: 12px; justify-content: center; animation: fadeUp 0.7s 0.55s ease both; opacity: 0; }
+    .hero-icons a {
+      width: 40px; height: 40px; border: 1.5px solid var(--border); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--muted);
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .hero-icons a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .scroll-cue { margin-top: 52px; display: flex; flex-direction: column; align-items: center; gap: 5px; color: var(--muted); font-size: 0.75rem; animation: fadeUp 0.7s 0.7s ease both; opacity: 0; }
+    .scroll-cue i { animation: bounce 1.8s ease infinite; }
+
+    /* ABOUT */
+    #about { background: var(--bg); }
+    .about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: start; }
+    .about-img-box {
+      width: 100%; aspect-ratio: 4/5; border-radius: 20px; overflow: hidden;
+      background: var(--light); display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; color: var(--muted);
+    }
+    .about-img-box img { width: 100%; height: 100%; object-fit: cover; }
+    .about-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+    .acard {
+      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+      padding: 18px; transition: border-color 0.2s, transform 0.2s;
+    }
+    .acard:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .acard-em { font-size: 1.3rem; margin-bottom: 7px; }
+    .acard h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 3px; }
+    .acard p { font-size: 0.76rem; color: var(--muted); line-height: 1.5; margin: 0; }
+    .about-bio { font-size: 0.92rem; color: var(--muted); line-height: 1.85; margin-bottom: 20px; }
+    .live-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent-bg); color: var(--accent);
+      font-size: 0.74rem; font-weight: 600; padding: 8px 14px; border-radius: 8px;
+    }
+    .live-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; animation: pulse-dot 2s infinite; }
+
+    /* SKILLS */
+    #skills { background: var(--white); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 12px; }
+    .sk {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 14px;
+      padding: 20px 14px; text-align: center; cursor: default;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .sk:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(37,99,235,0.08); }
+    .sk i { font-size: 1.7rem; margin-bottom: 9px; display: block; }
+    .sk strong { font-size: 0.78rem; font-weight: 600; display: block; margin-bottom: 3px; }
+    .sk small { font-size: 0.67rem; color: var(--muted); }
+
+    /* CERTS */
+    #certificates { background: var(--bg); }
+    .cg { margin-bottom: 40px; }
+    .cg:last-child { margin-bottom: 0; }
+    .cg-title {
+      font-size: 0.95rem; font-weight: 700; color: var(--text);
+      margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+    }
+    .cg-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .cg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+    .ci {
+      background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+      padding: 15px 18px; display: flex; align-items: center; gap: 13px;
+      transition: border-color 0.2s, transform 0.2s; color: var(--text);
+    }
+    .ci:hover { border-color: var(--accent); transform: translateX(4px); }
+    .ci-icon {
+      width: 36px; height: 36px; border-radius: 8px; background: var(--accent-bg);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 0.9rem; flex-shrink: 0;
+    }
+    .ci-text span { font-size: 0.81rem; font-weight: 500; display: block; line-height: 1.4; }
+    .ci-text small { font-size: 0.7rem; color: var(--muted); }
+
+    /* CONTACT */
+    #contact { background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .cc {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 20px;
+      padding: 36px 30px; display: flex; flex-direction: column;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .cc:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .cc-icon {
+      width: 48px; height: 48px; background: var(--accent-bg); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 1.2rem; margin-bottom: 16px;
+    }
+    .cc h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+    .cc p { font-size: 0.85rem; color: var(--muted); margin-bottom: 24px; flex-grow: 1; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border); padding: 26px 6%;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    footer p { font-size: 0.78rem; color: var(--muted); }
+    .ft-links { display: flex; gap: 18px; }
+    .ft-links a { font-size: 0.78rem; color: var(--muted); transition: color 0.2s; }
+    .ft-links a:hover { color: var(--accent); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* KEYFRAMES */
+    @keyframes fadeDown { from { opacity:0; transform:translateY(-14px); } to { opacity:1; transform:none; } }
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(14px); }  to { opacity:1; transform:none; } }
+    @keyframes bounce   { 0%,100% { transform:translateY(0); } 50% { transform:translateY(6px); } }
+    @keyframes pulse-dot { 0%,100% { opacity:1; } 50% { opacity:0.35; } }
+
+    /* RESPONSIVE */
+    @media (max-width: 840px) {
+      nav { padding: 0 24px; }
+      .nav-links, .nav-cv { display: none; }
+      .hamburger { display: flex; }
+      .about-grid { grid-template-columns: 1fr; text-align: center; }
+      .about-img-box { max-width: 240px; margin: 0 auto; }
+      .about-cards { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 10px; text-align: center; }
+      .ft-links { justify-content: center; }
+    }
+    @media (max-width: 520px) {
+      .about-cards { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .section { padding: 72px 24px; }
+    }
   </style>
 </head>
+<body>
 
-<body class="overflow-x-hidden">
-
-  <!-- NAVBAR -->
-  <nav class="fixed w-full z-50 glass">
-    <div class="py-4 px-4 sm:px-6 max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-xl font-bold gradient-text">MeChingee</h1>
-
-      <!-- Desktop menu -->
-      <div class="space-x-6 hidden md:flex items-center">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#certificates" class="nav-link">Certificates</a>
-        <a href="https://blog-two-silk-45.vercel.app/" class="nav-link">Blog</a>
-        <a href="https://research-lab-swart.vercel.app/" class="nav-link">LAB</a>
-      </div>
-
-      <!-- Right actions -->
-      <div class="flex items-center gap-3">
-        <a href="https://drive.google.com/file/d/1_o3WWgvI_xxp8hoZLi2basspg-ydeLkn/view?usp=drive_link" target="_blank"
-           class="hidden sm:inline-block bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm transition">
-          View CV
-        </a>
-
-        <!-- Mobile hamburger -->
-        <button id="menuBtn" class="md:hidden text-white text-xl p-2 rounded-lg hover:bg-white/10 transition"
-                aria-label="Open menu" aria-expanded="false">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile dropdown -->
-    <div id="mobileMenu" class="md:hidden hidden border-t border-white/10">
-      <div class="px-4 sm:px-6 py-4 flex flex-col gap-3">
-        <a href="#home" class="nav-link" data-close>Home</a>
-        <a href="#about" class="nav-link" data-close>About</a>
-        <a href="#skills" class="nav-link" data-close>Skills</a>
-        <a href="#certificates" class="nav-link" data-close>Certificates</a>
-
-        <a href="https://blog-two-silk-45.vercel.app/" class="nav-link">Blog</a>
-        <a href="https://research-lab-swart.vercel.app/" class="nav-link">LAB</a>
-
-        <a href="Anushrut2_CV.pdf" target="_blank"
-           class="mt-2 inline-block bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm transition w-fit">
-          View CV
-        </a>
-      </div>
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#home" class="nav-logo">Anushrut <span>Ghimire</span></a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certificates">Certifications</a></li>
+      <li><a href="https://blog-two-silk-45.vercel.app/" target="_blank">Blog</a></li>
+      <li><a href="https://research-lab-swart.vercel.app/" target="_blank">LAB</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="https://drive.google.com/file/d/1_o3WWgvI_xxp8hoZLi2basspg-ydeLkn/view?usp=drive_link" target="_blank" class="nav-cv">View CV</a>
+      <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
     </div>
   </nav>
 
-  <!-- HOME -->
-  <section id="home" class="min-h-[100svh] flex flex-col justify-center items-center text-center px-4 pt-28 pb-14">
-    <div data-aos="zoom-in" class="mb-6">
-      <img src="anushrut1.jpg" alt="Anushrut Ghimire"
-           class="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-blue-500 shadow-xl object-cover" />
-    </div>
+  <div class="mobile-menu" id="mob">
+    <a href="#home"          onclick="closeMob()">Home</a>
+    <a href="#about"         onclick="closeMob()">About</a>
+    <a href="#skills"        onclick="closeMob()">Skills</a>
+    <a href="#certificates"  onclick="closeMob()">Certifications</a>
+    <a href="https://blog-two-silk-45.vercel.app/" target="_blank">Blog</a>
+    <a href="https://research-lab-swart.vercel.app/" target="_blank">LAB</a>
+    <a href="https://drive.google.com/file/d/1_o3WWgvI_xxp8hoZLi2basspg-ydeLkn/view?usp=drive_link" target="_blank" class="btn-solid" style="margin-top:4px;justify-content:center;">View CV</a>
+  </div>
 
-    <h2 data-aos="fade-up"
-        class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 leading-tight">
-      Hi, I'm <span class="gradient-text">Anushrut</span>
-    </h2>
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-wrap">
+      <img src="anushrut1.jpg" alt="Anushrut Ghimire" class="hero-photo"
+        onerror="this.style.display='none';document.getElementById('hfb').style.display='flex';" />
+      <div id="hfb" class="hero-fallback"><i class="fas fa-user"></i></div>
 
-    <p data-aos="fade-up" data-aos-delay="200"
-       class="max-w-2xl text-gray-400 text-base sm:text-lg px-2">
-      Highly motivated science student with a strong academic foundation in Computer Science and Technology,
-      passionate about theoretical innovation and independent research.
-    </p>
+      <p class="hero-hi">Hello, I'm</p>
+      <h1 class="hero-name"><span>Anushrut Ghimire</span></h1>
+      <p class="hero-sub">Science student &amp; independent researcher passionate about Computer Science, AI Governance, and Cybersecurity.</p>
 
-    <div data-aos="fade-up" data-aos-delay="400"
-         class="mt-8 flex flex-col sm:flex-row gap-4">
-      <a href="#certificates"
-         class="bg-white text-slate-900 px-6 py-3 rounded-full font-bold hover:scale-105 transition inline-block">
-        My Certificate
-      </a>
-      <a href="mailto:anushrutghimire7@gmail.com"
-         class="border border-gray-500 px-6 py-3 rounded-full font-bold hover:bg-gray-800 transition inline-block">
-        Contact Me
-      </a>
+      <div class="hero-btns">
+        <a href="https://drive.google.com/file/d/1_o3WWgvI_xxp8hoZLi2basspg-ydeLkn/view?usp=drive_link" target="_blank" class="btn-solid">
+          <i class="fas fa-download"></i> Download CV
+        </a>
+        <a href="mailto:anushrutghimire7@gmail.com" class="btn-outline">
+          <i class="fas fa-envelope"></i> Contact Me
+        </a>
+      </div>
+
+      <div class="hero-icons">
+        <a href="https://anushrut.bio.link" target="_blank" title="All social links"><i class="fas fa-link"></i></a>
+        <a href="mailto:anushrutghimire7@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://blog-two-silk-45.vercel.app/" target="_blank" title="Blog"><i class="fas fa-pen-nib"></i></a>
+        <a href="https://research-lab-swart.vercel.app/" target="_blank" title="Research Lab"><i class="fas fa-flask"></i></a>
+      </div>
+
+      <div class="scroll-cue">
+        <span>Get to know more</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="py-16 sm:py-20 px-4 sm:px-6 max-w-5xl mx-auto">
-    <h3 data-aos="fade-right"
-        class="text-2xl sm:text-3xl font-bold mb-10 border-l-4 border-blue-500 pl-4">
-      Introduction & Education
-    </h3>
-
-    <div class="grid md:grid-cols-2 gap-8 sm:gap-10">
-      <div data-aos="fade-up" class="glass p-6 rounded-2xl">
-        <h4 class="text-blue-400 font-bold mb-2">Bio</h4>
-        <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-          I am Anushrut Ghimire, a highly motivated science student and self-directed researcher with a strong academic foundation in
-          Computer Science and Mathematics. Driven by a passion for theoretical innovation, I explore the intersection of technology and
-          physical systems—from conceptualizing Magnetic Propulsion Systems to studying AI Governance and Cybersecurity. I combine technical
-          proficiency in C and Kali Linux with a lifetime commitment to humanitarian values through the Nepal Red Cross Society. My goal is to
-          turn complex ideas into simple, secure, and future-ready solutions.
-        </p>
-
-        <p class="text-gray-400 text-xs sm:text-sm mt-3">
-          Latest: Ethical Hacking with Kali Linux (IBM, Coursera) — Feb 26, 2026
-        </p>
+  <section id="about" class="section">
+    <div class="inner">
+      <div class="sec-header reveal">
+        <small>Get to know more</small>
+        <h2>About Me</h2>
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="200" class="glass p-6 rounded-2xl">
-        <h4 class="text-blue-400 font-bold mb-2">Education</h4>
-        <ul class="space-y-3 text-sm sm:text-base">
-          <li><strong>+2 Computer Science</strong> | Valmiki Shiksha Sadan (GPA: 3.46)</li>
-          <li><strong>SEE Science</strong> | Small Heaven School (GPA: 3.35)</li>
-        </ul>
+      <div class="about-grid">
+        <div class="about-img-box reveal">
+          <i class="fas fa-user"></i>
+        </div>
+
+        <div>
+          <div class="about-cards reveal">
+            <div class="acard">
+              <div class="acard-em">🎓</div>
+              <h4>Education</h4>
+              <p>+2 Computer Science<br>Valmiki Shiksha Sadan · GPA 3.46</p>
+            </div>
+            <div class="acard">
+              <div class="acard-em">❤️</div>
+              <h4>Volunteering</h4>
+              <p>Nepal Red Cross Society<br>Humanitarian member</p>
+            </div>
+            <div class="acard">
+              <div class="acard-em">🏫</div>
+              <h4>SEE</h4>
+              <p>Small Heaven School<br>GPA 3.35</p>
+            </div>
+            <div class="acard">
+              <div class="acard-em">🔬</div>
+              <h4>Research</h4>
+              <p>AI · Security · Physics<br>Independent work</p>
+            </div>
+          </div>
+
+          <p class="about-bio reveal">
+            I am Anushrut Ghimire, a self-directed researcher with a strong foundation in Computer Science and Mathematics. Driven by a passion for theoretical innovation, I explore the intersection of technology and physical systems — from Magnetic Propulsion Systems to AI Governance and Cybersecurity.
+          </p>
+          <p class="about-bio reveal">
+            I combine technical proficiency in C and Kali Linux with a lifetime commitment to humanitarian values through the Nepal Red Cross Society. My goal is to turn complex ideas into simple, secure, and future-ready solutions.
+          </p>
+
+          <div class="live-badge reveal">
+            <span class="live-dot"></span>
+            Latest: Ethical Hacking with Kali Linux (IBM, Coursera) — Feb 26, 2026
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="py-16 sm:py-20 bg-slate-900/50">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-      <h3 data-aos="fade-up" class="text-2xl sm:text-3xl font-bold mb-10 sm:mb-12">
-        Technical & Professional Skills
-      </h3>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-        <div data-aos="flip-left" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fab fa-python text-3xl sm:text-4xl mb-3 sm:mb-4 text-yellow-400"></i>
-          <p class="text-sm sm:text-base font-medium">Python Programming</p>
-          <span class="text-xs sm:text-sm text-gray-400">Basics • Automation • Logic</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="100" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-code text-3xl sm:text-4xl mb-3 sm:mb-4 text-blue-400"></i>
-          <p class="text-sm sm:text-base font-medium">C Programming</p>
-          <span class="text-xs sm:text-sm text-gray-400">Structures • Memory • Logic</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="150" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fab fa-linux text-3xl sm:text-4xl mb-3 sm:mb-4 text-white"></i>
-          <p class="text-sm sm:text-base font-medium">Kali Linux</p>
-          <span class="text-xs sm:text-sm text-gray-400">Security • CLI • Tools</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="200" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-brain text-3xl sm:text-4xl mb-3 sm:mb-4 text-purple-400"></i>
-          <p class="text-sm sm:text-base font-medium">Multi-Agent AI</p>
-          <span class="text-xs sm:text-sm text-gray-400">Agents • Automation • Logic</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="250" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-network-wired text-3xl sm:text-4xl mb-3 sm:mb-4 text-cyan-400"></i>
-          <p class="text-sm sm:text-base font-medium">Wireshark</p>
-          <span class="text-xs sm:text-sm text-gray-400">Traffic Analysis • Anomalies</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="300" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-chart-line text-3xl sm:text-4xl mb-3 sm:mb-4 text-green-400"></i>
-          <p class="text-sm sm:text-base font-medium">Data Analysis</p>
-          <span class="text-xs sm:text-sm text-gray-400">Excel • Visualization</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="350" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fab fa-google text-3xl sm:text-4xl mb-3 sm:mb-4 text-red-400"></i>
-          <p class="text-sm sm:text-base font-medium">Google Analytics</p>
-          <span class="text-xs sm:text-sm text-gray-400">Tracking • Reports</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="400" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-shield-alt text-3xl sm:text-4xl mb-3 sm:mb-4 text-indigo-400"></i>
-          <p class="text-sm sm:text-base font-medium">Cybersecurity</p>
-          <span class="text-xs sm:text-sm text-gray-400">Network • Ethical Hacking</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="450" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-balance-scale text-3xl sm:text-4xl mb-3 sm:mb-4 text-yellow-300"></i>
-          <p class="text-sm sm:text-base font-medium">AI Governance</p>
-          <span class="text-xs sm:text-sm text-gray-400">Ethics • Compliance</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="500" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-globe text-3xl sm:text-4xl mb-3 sm:mb-4 text-blue-300"></i>
-          <p class="text-sm sm:text-base font-medium">UN Safety Policy</p>
-          <span class="text-xs sm:text-sm text-gray-400">WAM • Risk • DDR</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="550" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-atom text-3xl sm:text-4xl mb-3 sm:mb-4 text-pink-400"></i>
-          <p class="text-sm sm:text-base font-medium">Nanomaterials Safety</p>
-          <span class="text-xs sm:text-sm text-gray-400">Lab • Risk • Protocol</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="600" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-search text-3xl sm:text-4xl mb-3 sm:mb-4 text-orange-400"></i>
-          <p class="text-sm sm:text-base font-medium">Technical Research</p>
-          <span class="text-xs sm:text-sm text-gray-400">Analysis • Reporting</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="650" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-comments text-3xl sm:text-4xl mb-3 sm:mb-4 text-teal-400"></i>
-          <p class="text-sm sm:text-base font-medium">Professional Communication</p>
-          <span class="text-xs sm:text-sm text-gray-400">Communication • Technical Articulation</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="700" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-user-secret text-3xl sm:text-4xl mb-3 sm:mb-4 text-lime-400"></i>
-          <p class="text-sm sm:text-base font-medium">Ethical Hacking</p>
-          <span class="text-xs sm:text-sm text-gray-400">Kali • Basics • Practice</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="750" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-binoculars text-3xl sm:text-4xl mb-3 sm:mb-4 text-emerald-300"></i>
-          <p class="text-sm sm:text-base font-medium">Recon & Scanning</p>
-          <span class="text-xs sm:text-sm text-gray-400">Footprinting • Discovery</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="800" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-terminal text-3xl sm:text-4xl mb-3 sm:mb-4 text-sky-300"></i>
-          <p class="text-sm sm:text-base font-medium">Linux Security</p>
-          <span class="text-xs sm:text-sm text-gray-400">Permissions • Hardening</span>
-        </div>
-
-        <div data-aos="flip-left" data-aos-delay="850" class="glass p-5 sm:p-8 rounded-xl hover:border-blue-500 transition min-h-[140px]">
-          <i class="fas fa-bug text-3xl sm:text-4xl mb-3 sm:mb-4 text-rose-300"></i>
-          <p class="text-sm sm:text-base font-medium">Vulnerability Basics</p>
-          <span class="text-xs sm:text-sm text-gray-400">Common Flaws • Mitigation</span>
-        </div>
+  <section id="skills" class="section">
+    <div class="inner">
+      <div class="sec-header reveal">
+        <small>Explore my</small>
+        <h2>Technical Skills</h2>
       </div>
+      <div class="skills-grid" id="skillsGrid"></div>
     </div>
   </section>
 
   <!-- CERTIFICATES -->
-  <section id="certificates" class="py-16 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto">
-    <h3 data-aos="fade-right"
-        class="text-2xl sm:text-3xl font-bold mb-10 border-l-4 border-blue-500 pl-4">
-      Certifications
-    </h3>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-
-      <div data-aos="fade-up" class="glass p-6 rounded-3xl border-t-4 border-blue-500 flex flex-col h-full">
-        <h4 class="text-lg sm:text-xl font-bold mb-4">Coursera</h4>
-        <ul class="space-y-3 text-gray-300 text-sm flex-grow">
-          <li><a href="/Coursera 0RE44UPGLV9Q.pdf" target="_blank" class="hover:text-blue-400 transition">Overview of Data Visualization</a></li>
-          <li><a href="/Coursera N2TZZUMKATR9.pdf" target="_blank" class="hover:text-blue-400 transition">Wireshark: Detect Network Anomalies</a></li>
-          <li><a href="/Coursera QIYEWGMCTZ0H.pdf" target="_blank" class="hover:text-blue-400 transition">Data Analysis using Microsoft Excel</a></li>
-          <li><a href="/Coursera VHFHKDMIEZZ0.pdf" target="_blank" class="hover:text-blue-400 transition">Getting Started in Google Analytics</a></li>
-          <li><a href="/Coursera YDTCDD19D3VJ.pdf" target="_blank" class="hover:text-blue-400 transition">Construct Stock Market Indices</a></li>
-          <li><a href="/Coursera YHZZN6RTFKZ3.pdf" target="_blank" class="hover:text-blue-400 transition">Take your resume to the next level with Canva</a></li>
-          <li><a href="/Coursera J2PQ48M7QDMF.pdf" target="_blank" class="hover:text-blue-400 transition">Ethical Hacking with Kali Linux (IBM)</a></li>
-        </ul>
+  <section id="certificates" class="section">
+    <div class="inner">
+      <div class="sec-header reveal">
+        <small>Explore my</small>
+        <h2>Certifications</h2>
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="100" class="glass p-6 rounded-3xl border-t-4 border-blue-500 flex flex-col h-full">
-        <h4 class="text-lg sm:text-xl font-bold mb-4">UNITAR / United Nations</h4>
-        <ul class="space-y-3 text-gray-300 text-sm flex-grow">
-          <li><a href="/Certificate_of_Completion.pdf" target="_blank" class="hover:text-blue-400 transition">Effective Weapons & Ammunition Management (WAM & DDR)</a></li>
-          <li><a href="/Nanomaterials_Safety_Certificate.pdf" target="_blank" class="hover:text-blue-400 transition">Nanomaterials Safety</a></li>
-        </ul>
+      <div class="cg reveal">
+        <div class="cg-title">Coursera</div>
+        <div class="cg-grid">
+          <a href="/Coursera 0RE44UPGLV9Q.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-chart-bar"></i></div><div class="ci-text"><span>Overview of Data Visualization</span><small>Coursera</small></div></a>
+          <a href="/Coursera N2TZZUMKATR9.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-network-wired"></i></div><div class="ci-text"><span>Wireshark: Detect Network Anomalies</span><small>Coursera</small></div></a>
+          <a href="/Coursera QIYEWGMCTZ0H.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-table"></i></div><div class="ci-text"><span>Data Analysis using Microsoft Excel</span><small>Coursera</small></div></a>
+          <a href="/Coursera VHFHKDMIEZZ0.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fab fa-google"></i></div><div class="ci-text"><span>Getting Started in Google Analytics</span><small>Coursera</small></div></a>
+          <a href="/Coursera YDTCDD19D3VJ.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-chart-line"></i></div><div class="ci-text"><span>Construct Stock Market Indices</span><small>Coursera</small></div></a>
+          <a href="/Coursera YHZZN6RTFKZ3.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-file-alt"></i></div><div class="ci-text"><span>Resume to the Next Level with Canva</span><small>Coursera</small></div></a>
+          <a href="/Coursera J2PQ48M7QDMF.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-user-secret"></i></div><div class="ci-text"><span>Ethical Hacking with Kali Linux (IBM)</span><small>Coursera · Feb 2026</small></div></a>
+        </div>
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="200" class="glass p-6 rounded-3xl border-t-4 border-blue-500 flex flex-col h-full">
-        <h4 class="text-lg sm:text-xl font-bold mb-4">Mathematics Olympiad</h4>
-        <ul class="space-y-3 text-gray-300 text-sm flex-grow">
-          <li><a href="/Anushrut Ghimire_Bagmati_DMO_2025.png" target="_blank" class="hover:text-blue-400 transition">District Level</a></li>
-          <li><a href="IMG_0078.PNG" target="_blank" class="hover:text-blue-400 transition">National Level (Pre-TST)</a></li>
-        </ul>
+      <div class="cg reveal">
+        <div class="cg-title">UNITAR / United Nations</div>
+        <div class="cg-grid">
+          <a href="/Certificate_of_Completion.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-globe"></i></div><div class="ci-text"><span>Weapons &amp; Ammunition Management</span><small>UNITAR · WAM &amp; DDR</small></div></a>
+          <a href="/Nanomaterials_Safety_Certificate.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-atom"></i></div><div class="ci-text"><span>Nanomaterials Safety</span><small>UNITAR</small></div></a>
+        </div>
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="300" class="glass p-6 rounded-3xl border-t-4 border-blue-500 flex flex-col h-full">
-        <h4 class="text-lg sm:text-xl font-bold mb-4">Udemy</h4>
-        <ul class="space-y-3 text-gray-300 text-sm flex-grow">
-          <li><a href="/UC-d23878ec-83ec-410e-bd37-d6cd6d47cece.pdf" target="_blank" class="hover:text-blue-400 transition">AI Governance & Compliance for HR</a></li>
-          <li><a href="/UC-f9c18bd1-e7df-4253-8e85-0d0ae5ad2ab5.pdf" target="_blank" class="hover:text-blue-400 transition">Master Google ADK (Multi-Agent AI Systems)</a></li>
-        </ul>
+      <div class="cg reveal">
+        <div class="cg-title">Mathematics Olympiad</div>
+        <div class="cg-grid">
+          <a href="/Anushrut Ghimire_Bagmati_DMO_2025.png" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-trophy"></i></div><div class="ci-text"><span>District Level — Bagmati DMO 2025</span><small>Mathematics Olympiad</small></div></a>
+          <a href="IMG_0078.PNG" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-medal"></i></div><div class="ci-text"><span>National Level — Pre-TST Qualifier</span><small>Mathematics Olympiad</small></div></a>
+        </div>
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="400" class="glass p-6 rounded-3xl border-t-4 border-blue-500 flex flex-col h-full">
-        <h4 class="text-lg sm:text-xl font-bold mb-4">Other</h4>
-        <ul class="space-y-3 text-gray-300 text-sm flex-grow">
-          <li><a href="/Certificate_Supporting_People_Living_with_Dementia_Introductory 2.pdf" target="_blank" class="hover:text-blue-400 transition">Supporting People Living with Dementia (Introductory)</a></li>
-          <li><a href="/Know the OS.png" target="_blank" class="hover:text-blue-400 transition">Know the OS – Ethical Hacking (HackerX)</a></li>
-        </ul>
+      <div class="cg reveal">
+        <div class="cg-title">Udemy</div>
+        <div class="cg-grid">
+          <a href="/UC-d23878ec-83ec-410e-bd37-d6cd6d47cece.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-balance-scale"></i></div><div class="ci-text"><span>AI Governance &amp; Compliance for HR</span><small>Udemy</small></div></a>
+          <a href="/UC-f9c18bd1-e7df-4253-8e85-0d0ae5ad2ab5.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-brain"></i></div><div class="ci-text"><span>Master Google ADK — Multi-Agent AI</span><small>Udemy</small></div></a>
+        </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- SOCIAL + CV -->
-  <section class="py-16 sm:py-20 bg-slate-900">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-6 sm:gap-10">
-      <div data-aos="fade-right" class="glass p-8 rounded-2xl flex flex-col items-center text-center">
-        <h3 class="text-xl sm:text-2xl font-bold mb-4">Check my Social Media</h3>
-        <p class="text-gray-400 mb-6 text-sm sm:text-base">For social media updates and insights</p>
-        <a href="https://anushrut.bio.link" class="text-blue-400 font-bold hover:underline">
-          Visit <i class="fas fa-external-link-alt ml-2"></i>
-        </a>
-      </div>
-
-      <div data-aos="fade-left" class="glass p-8 rounded-2xl flex flex-col items-center text-center">
-        <h3 class="text-xl sm:text-2xl font-bold mb-4">My CV</h3>
-        <p class="text-gray-400 mb-6 text-sm sm:text-base">Want to see the full details of my academic journey?</p>
-        <a href="https://drive.google.com/file/d/1_o3WWgvI_xxp8hoZLi2basspg-ydeLkn/view?usp=drive_link" class="bg-blue-600 px-6 py-2 rounded-lg hover:bg-blue-700 transition">
-          View CV
-        </a>
+      <div class="cg reveal">
+        <div class="cg-title">Other</div>
+        <div class="cg-grid">
+          <a href="/Certificate_Supporting_People_Living_with_Dementia_Introductory 2.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-heart"></i></div><div class="ci-text"><span>Supporting People Living with Dementia</span><small>Introductory</small></div></a>
+          <a href="/Know the OS.png" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-terminal"></i></div><div class="ci-text"><span>Know the OS — Ethical Hacking</span><small>HackerX</small></div></a>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-10 text-center border-t border-gray-800">
-    <p class="text-gray-500 text-sm">© 2026 Anushrut Ghimire | Built with Passion & Technology</p>
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="inner">
+      <div class="sec-header reveal">
+        <small>Get in touch</small>
+        <h2>Contact Me</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="cc reveal">
+          <div class="cc-icon"><i class="fas fa-link"></i></div>
+          <h3>Social Media</h3>
+          <p>Follow my research updates, blog posts, and insights across all my platforms.</p>
+          <a href="https://anushrut.bio.link" target="_blank" class="btn-solid" style="align-self:flex-start;">
+            Visit Links <i class="fas fa-external-link-alt" style="font-size:0.75rem;"></i>
+          </a>
+        </div>
+        <div class="cc reveal">
+          <div class="cc-icon"><i class="fas fa-envelope"></i></div>
+          <h3>Email Me</h3>
+          <p>Have a question or want to collaborate? Reach out directly anytime.</p>
+          <a href="mailto:anushrutghimire7@gmail.com" class="btn-outline" style="align-self:flex-start;">
+            anushrutghimire7@gmail.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Anushrut Ghimire. All Rights Reserved.</p>
+    <div class="ft-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#certificates">Certifications</a>
+      <a href="mailto:anushrutghimire7@gmail.com">Email</a>
+    </div>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 1000, once: true });
+    /* nav */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
 
-    // Mobile menu toggle
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
+    /* mobile menu */
+    const ham = document.getElementById('ham');
+    const mob = document.getElementById('mob');
+    ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+    function closeMob() { ham.classList.remove('open'); mob.classList.remove('open'); }
 
-    menuBtn.addEventListener("click", () => {
-      const isOpen = !mobileMenu.classList.contains("hidden");
-      mobileMenu.classList.toggle("hidden");
-      menuBtn.setAttribute("aria-expanded", String(!isOpen));
-      menuBtn.innerHTML = !isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    /* skills */
+    const skills = [
+      { i:'fab fa-python',         c:'#f59e0b', n:'Python',           s:'Automation · Logic' },
+      { i:'fas fa-code',           c:'#3b82f6', n:'C Programming',    s:'Structures · Memory' },
+      { i:'fab fa-linux',          c:'#374151', n:'Kali Linux',       s:'Security · CLI' },
+      { i:'fas fa-brain',          c:'#8b5cf6', n:'Multi-Agent AI',   s:'Agents · Automation' },
+      { i:'fas fa-network-wired',  c:'#06b6d4', n:'Wireshark',        s:'Traffic Analysis' },
+      { i:'fas fa-chart-line',     c:'#22c55e', n:'Data Analysis',    s:'Excel · Viz' },
+      { i:'fab fa-google',         c:'#ef4444', n:'Google Analytics', s:'Tracking · Reports' },
+      { i:'fas fa-shield-alt',     c:'#6366f1', n:'Cybersecurity',    s:'Network · Hacking' },
+      { i:'fas fa-balance-scale',  c:'#d97706', n:'AI Governance',    s:'Ethics · Compliance' },
+      { i:'fas fa-globe',          c:'#2563eb', n:'UN Safety Policy', s:'WAM · DDR' },
+      { i:'fas fa-atom',           c:'#ec4899', n:'Nanomaterials',    s:'Lab · Protocol' },
+      { i:'fas fa-search',         c:'#f97316', n:'Research',         s:'Analysis · Reporting' },
+      { i:'fas fa-user-secret',    c:'#84cc16', n:'Ethical Hacking',  s:'Kali · Practice' },
+      { i:'fas fa-binoculars',     c:'#10b981', n:'Recon & Scanning', s:'Footprinting' },
+      { i:'fas fa-terminal',       c:'#38bdf8', n:'Linux Security',   s:'Hardening' },
+      { i:'fas fa-bug',            c:'#f87171', n:'Vulnerability',    s:'Flaws · Mitigation' },
+      { i:'fas fa-comments',       c:'#34d399', n:'Communication',    s:'Technical Writing' },
+    ];
+    const g = document.getElementById('skillsGrid');
+    skills.forEach((s, i) => {
+      const el = document.createElement('div');
+      el.className = 'sk reveal';
+      el.style.transitionDelay = (i * 0.035) + 's';
+      el.innerHTML = `<i class="${s.i}" style="color:${s.c}"></i><strong>${s.n}</strong><small>${s.s}</small>`;
+      g.appendChild(el);
     });
 
-    // Close menu on link click
-    document.querySelectorAll("[data-close]").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
-        menuBtn.setAttribute("aria-expanded", "false");
-        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-      });
-    });
+    /* scroll reveal */
+    const obs = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
 </body>
 </html>
