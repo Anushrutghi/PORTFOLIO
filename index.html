@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anushrut Ghimire | Portfolio</title>
-  <link rel="icon" type="anushrut1.jpg" href="favicon.png">
+  <link rel="icon" type="image/jpeg" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,6 +19,12 @@
       --border: #e5e5e0;
       --accent: #2563eb;
       --accent-bg: #eff6ff;
+      --dark: #080808;
+      --dark-card: #121212;
+      --dark-card-2: #1b1b1d;
+      --dark-border: rgba(255,255,255,0.12);
+      --dark-text: #f4f4f5;
+      --dark-muted: #a1a1aa;
     }
     html { scroll-behavior: smooth; }
     html, body { overflow-x: hidden; }
@@ -26,237 +32,187 @@
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; height: auto; }
 
-    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(255,255,255,0.94); backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
       padding: 0 6%; height: 68px;
       display: flex; justify-content: space-between; align-items: center;
-      transition: box-shadow 0.3s;
+      transition: box-shadow 0.3s, background 0.3s;
     }
     nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
     .nav-logo { font-size: 1.1rem; font-weight: 700; color: var(--text); }
     .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a {
-      font-size: 0.85rem; font-weight: 500; color: var(--muted);
-      transition: color 0.25s; position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -3px; left: 0;
-      width: 0; height: 2px; background: var(--accent); border-radius: 2px; transition: width 0.3s;
-    }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--muted); transition: color 0.25s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px; background: var(--accent); border-radius: 2px; transition: width 0.3s; }
     .nav-links a:hover { color: var(--accent); }
     .nav-links a:hover::after { width: 100%; }
-    .nav-cv {
-      font-size: 0.82rem; font-weight: 600; color: var(--accent);
-      border: 1.5px solid var(--accent); padding: 8px 18px; border-radius: 8px;
-      transition: background 0.25s, color 0.25s;
-    }
+    .nav-cv { font-size: 0.82rem; font-weight: 600; color: var(--accent); border: 1.5px solid var(--accent); padding: 8px 18px; border-radius: 8px; transition: background 0.25s, color 0.25s; }
     .nav-cv:hover { background: var(--accent); color: #fff; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu {
-      display: none; position: fixed; top: 68px; left: 0; right: 0;
-      background: #fff; border-bottom: 1px solid var(--border);
-      padding: 24px 6%; flex-direction: column; gap: 16px; z-index: 99;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
-    }
+    .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 24px 6%; flex-direction: column; gap: 16px; z-index: 99; box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { font-size: 0.9rem; font-weight: 500; color: var(--muted); transition: color 0.2s; }
     .mobile-menu a:hover { color: var(--accent); }
 
-    /* SHARED */
     .section { padding: 96px 6%; }
-    .inner { max-width: 960px; margin: 0 auto; }
+    .inner { max-width: 1100px; margin: 0 auto; }
     .sec-header { text-align: center; margin-bottom: 56px; }
     .sec-header small { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 8px; }
     .sec-header h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; }
 
-    /* HERO */
-    #home {
-      min-height: 100svh; display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 100px 6% 60px; background: var(--white);
-    }
+    #home { min-height: 100svh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 6% 60px; background: var(--white); }
     .hero-wrap { max-width: 640px; }
-    .hero-photo {
-      width: 156px; height: 156px; border-radius: 50%; object-fit: cover;
-      border: 4px solid var(--border); margin-bottom: 28px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      animation: fadeDown 0.7s ease both;
-    }
-    .hero-fallback {
-      width: 156px; height: 156px; border-radius: 50%;
-      background: var(--accent-bg); border: 4px solid var(--border);
-      display: none; align-items: center; justify-content: center;
-      font-size: 3.2rem; color: var(--accent); margin: 0 auto 28px;
-      animation: fadeDown 0.7s ease both;
-    }
+    .hero-photo { width: 156px; height: 156px; border-radius: 50%; object-fit: cover; border: 4px solid var(--border); margin-bottom: 28px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); animation: fadeDown 0.7s ease both; }
+    .hero-fallback { width: 156px; height: 156px; border-radius: 50%; background: var(--accent-bg); border: 4px solid var(--border); display: none; align-items: center; justify-content: center; font-size: 3.2rem; color: var(--accent); margin: 0 auto 28px; animation: fadeDown 0.7s ease both; }
     .hero-hi { font-size: 1rem; font-weight: 500; color: var(--muted); margin-bottom: 6px; animation: fadeUp 0.7s 0.15s ease both; opacity: 0; }
     .hero-name { font-size: clamp(2.2rem, 7vw, 3.6rem); font-weight: 700; line-height: 1.1; margin-bottom: 16px; animation: fadeUp 0.7s 0.25s ease both; opacity: 0; }
     .hero-name span { color: var(--accent); }
     .hero-sub { font-size: 0.96rem; color: var(--muted); max-width: 500px; margin: 0 auto 36px; animation: fadeUp 0.7s 0.35s ease both; opacity: 0; }
     .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; animation: fadeUp 0.7s 0.45s ease both; opacity: 0; }
-    .btn-solid {
-      background: var(--accent); color: #fff; font-size: 0.85rem; font-weight: 600;
-      padding: 13px 28px; border-radius: 10px; border: none; cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-      display: inline-flex; align-items: center; gap: 8px;
-    }
+    .btn-solid { background: var(--accent); color: #fff; font-size: 0.85rem; font-weight: 600; padding: 13px 28px; border-radius: 10px; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; display: inline-flex; align-items: center; gap: 8px; }
     .btn-solid:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.25); background: #1d4ed8; }
-    .btn-outline {
-      background: transparent; color: var(--text); font-size: 0.85rem; font-weight: 600;
-      padding: 12px 26px; border-radius: 10px; border: 1.5px solid var(--border); cursor: pointer;
-      transition: border-color 0.2s, color 0.2s, transform 0.2s;
-      display: inline-flex; align-items: center; gap: 8px;
-    }
+    .btn-outline { background: transparent; color: var(--text); font-size: 0.85rem; font-weight: 600; padding: 12px 26px; border-radius: 10px; border: 1.5px solid var(--border); cursor: pointer; transition: border-color 0.2s, color 0.2s, transform 0.2s; display: inline-flex; align-items: center; gap: 8px; }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
     .hero-icons { display: flex; gap: 12px; justify-content: center; animation: fadeUp 0.7s 0.55s ease both; opacity: 0; }
-    .hero-icons a {
-      width: 40px; height: 40px; border: 1.5px solid var(--border); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--muted);
-      transition: border-color 0.2s, color 0.2s, transform 0.2s;
-    }
+    .hero-icons a { width: 40px; height: 40px; border: 1.5px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--muted); transition: border-color 0.2s, color 0.2s, transform 0.2s; }
     .hero-icons a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
     .scroll-cue { margin-top: 52px; display: flex; flex-direction: column; align-items: center; gap: 5px; color: var(--muted); font-size: 0.75rem; animation: fadeUp 0.7s 0.7s ease both; opacity: 0; }
     .scroll-cue i { animation: bounce 1.8s ease infinite; }
 
-    /* ABOUT */
-    #about { background: var(--bg); }
-    .about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: start; }
-    .about-img-box {
-      width: 100%; aspect-ratio: 4/5; border-radius: 20px; overflow: hidden;
-      background: var(--light); display: flex; align-items: center; justify-content: center;
-      font-size: 4rem; color: var(--muted);
-    }
-    .about-img-box img { width: 100%; height: 100%; object-fit: cover; }
-    .about-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
-    .acard {
-      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
-      padding: 18px; transition: border-color 0.2s, transform 0.2s;
-    }
-    .acard:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .acard-em { font-size: 1.3rem; margin-bottom: 7px; }
-    .acard h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 3px; }
-    .acard p { font-size: 0.76rem; color: var(--muted); line-height: 1.5; margin: 0; }
-    .about-bio { font-size: 0.92rem; color: var(--muted); line-height: 1.85; margin-bottom: 20px; }
-    .live-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent-bg); color: var(--accent);
-      font-size: 0.74rem; font-weight: 600; padding: 8px 14px; border-radius: 8px;
-    }
+    #about { background: var(--bg); padding: 80px 5%; width: 100%; }
+    .about-header { text-align: center; margin-bottom: 60px; }
+    .about-header small { color: #6b7280; letter-spacing: 1px; }
+    .about-header h2 { font-size: clamp(2rem, 4vw, 42px); margin-top: 10px; }
+    .about-wrap { width: 100%; max-width: 1200px; margin: auto; }
+    .about-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 50px; }
+    .about-card { padding: 25px; border: 1px solid #e5e7eb; border-radius: 15px; background: #fff; transition: transform 0.25s, border-color 0.25s; }
+    .about-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .about-card div { font-size: 28px; }
+    .about-card h4 { margin: 10px 0; }
+    .about-card p { color: #6b7280; }
+    .about-text { max-width: 900px; margin: auto; text-align: center; }
+    .about-text p { margin-bottom: 20px; color: #374151; }
+    .live-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-bg); color: var(--accent); font-size: 0.74rem; font-weight: 600; padding: 8px 14px; border-radius: 8px; }
     .live-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; animation: pulse-dot 2s infinite; }
 
-    /* SKILLS */
+    #music { background: radial-gradient(circle at top left, rgba(37,99,235,0.18), transparent 30%), radial-gradient(circle at bottom right, rgba(168,85,247,0.12), transparent 32%), var(--dark); color: var(--dark-text); position: relative; overflow: hidden; }
+    #music::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(to bottom, black, transparent 85%); pointer-events: none; }
+    .music-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .music-hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center; margin-bottom: 40px; }
+    .music-kicker { display: inline-flex; align-items: center; gap: 8px; color: #93c5fd; border: 1px solid rgba(147,197,253,0.25); background: rgba(37,99,235,0.12); padding: 8px 12px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; }
+    .music-title { font-size: clamp(2rem, 5vw, 4rem); line-height: 1.05; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 14px; }
+    .music-title span { background: linear-gradient(90deg, #fff, #9ec5ff, #d8b4fe); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .music-desc { color: var(--dark-muted); font-size: 0.98rem; max-width: 660px; margin-bottom: 24px; }
+    .music-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .music-btn { display: inline-flex; align-items: center; gap: 10px; border-radius: 12px; padding: 12px 18px; font-weight: 700; font-size: 0.85rem; transition: transform 0.25s, border-color 0.25s, background 0.25s; }
+    .music-btn.primary { background: #fff; color: #09090b; }
+    .music-btn.ghost { border: 1px solid var(--dark-border); color: #fff; background: rgba(255,255,255,0.04); }
+    .music-btn:hover { transform: translateY(-3px); }
+    .music-visual { min-height: 310px; border: 1px solid var(--dark-border); border-radius: 28px; background: linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.02)); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 25px 80px rgba(0,0,0,0.35); }
+    .vinyl { width: 230px; height: 230px; border-radius: 50%; background: radial-gradient(circle, #fff 0 9%, #111 10% 20%, #333 21% 22%, #080808 23% 42%, #27272a 43% 44%, #0b0b0c 45% 62%, #2b2b31 63% 64%, #050505 65% 100%); box-shadow: 0 0 0 18px rgba(255,255,255,0.025), 0 0 70px rgba(59,130,246,0.3); animation: spin 10s linear infinite; }
+    .visual-label { position: absolute; bottom: 24px; left: 24px; right: 24px; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 16px; backdrop-filter: blur(10px); }
+    .visual-label strong { display: block; font-size: 1rem; }
+    .visual-label small { color: var(--dark-muted); }
+
+    .music-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+    .tab-btn { border: 1px solid var(--dark-border); background: rgba(255,255,255,0.04); color: var(--dark-muted); padding: 10px 14px; border-radius: 999px; font-family: inherit; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: background 0.25s, color 0.25s, transform 0.25s; }
+    .tab-btn.active, .tab-btn:hover { background: #fff; color: #09090b; transform: translateY(-2px); }
+    .music-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; }
+    .music-card { display: flex; align-items: center; gap: 14px; min-height: 92px; padding: 18px; border-radius: 20px; background: rgba(255,255,255,0.055); border: 1px solid var(--dark-border); transition: transform 0.25s, border-color 0.25s, background 0.25s; position: relative; overflow: hidden; }
+    .music-card::after { content: ''; position: absolute; inset: auto -40px -60px auto; width: 130px; height: 130px; border-radius: 50%; background: var(--glow, rgba(37,99,235,0.2)); filter: blur(20px); opacity: 0; transition: opacity 0.25s; }
+    .music-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.28); background: rgba(255,255,255,0.08); }
+    .music-card:hover::after { opacity: 1; }
+    .platform-icon { width: 48px; height: 48px; flex: 0 0 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); font-size: 1.35rem; color: var(--brand, #fff); position: relative; z-index: 1; }
+    .platform-info { position: relative; z-index: 1; min-width: 0; }
+    .platform-info strong { display: block; font-size: 0.96rem; color: #fff; }
+    .platform-info span { display: block; color: var(--dark-muted); font-size: 0.73rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 175px; }
+    .open-arrow { margin-left: auto; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; background: rgba(255,255,255,0.07); position: relative; z-index: 1; transition: transform 0.25s, background 0.25s; }
+    .music-card:hover .open-arrow { transform: translateX(3px); background: rgba(255,255,255,0.14); }
+    .music-note { margin-top: 22px; color: var(--dark-muted); font-size: 0.82rem; text-align: center; }
+
     #skills { background: var(--white); }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 12px; }
-    .sk {
-      background: var(--bg); border: 1px solid var(--border); border-radius: 14px;
-      padding: 20px 14px; text-align: center; cursor: default;
-      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
+    .sk { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px 14px; text-align: center; cursor: default; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
     .sk:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(37,99,235,0.08); }
     .sk i { font-size: 1.7rem; margin-bottom: 9px; display: block; }
     .sk strong { font-size: 0.78rem; font-weight: 600; display: block; margin-bottom: 3px; }
     .sk small { font-size: 0.67rem; color: var(--muted); }
 
-    /* CERTS */
     #certificates { background: var(--bg); }
     .cg { margin-bottom: 40px; }
     .cg:last-child { margin-bottom: 0; }
-    .cg-title {
-      font-size: 0.95rem; font-weight: 700; color: var(--text);
-      margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
-    }
+    .cg-title { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
     .cg-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .cg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
-    .ci {
-      background: var(--white); border: 1px solid var(--border); border-radius: 12px;
-      padding: 15px 18px; display: flex; align-items: center; gap: 13px;
-      transition: border-color 0.2s, transform 0.2s; color: var(--text);
-    }
+    .ci { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 15px 18px; display: flex; align-items: center; gap: 13px; transition: border-color 0.2s, transform 0.2s; color: var(--text); }
     .ci:hover { border-color: var(--accent); transform: translateX(4px); }
-    .ci-icon {
-      width: 36px; height: 36px; border-radius: 8px; background: var(--accent-bg);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--accent); font-size: 0.9rem; flex-shrink: 0;
-    }
+    .ci-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--accent-bg); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.9rem; flex-shrink: 0; }
     .ci-text span { font-size: 0.81rem; font-weight: 500; display: block; line-height: 1.4; }
     .ci-text small { font-size: 0.7rem; color: var(--muted); }
 
-    /* CONTACT */
     #contact { background: var(--white); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .cc {
-      background: var(--bg); border: 1px solid var(--border); border-radius: 20px;
-      padding: 36px 30px; display: flex; flex-direction: column;
-      transition: border-color 0.25s, transform 0.25s;
-    }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .cc { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 36px 30px; display: flex; flex-direction: column; transition: border-color 0.25s, transform 0.25s; }
     .cc:hover { border-color: var(--accent); transform: translateY(-3px); }
-    .cc-icon {
-      width: 48px; height: 48px; background: var(--accent-bg); border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--accent); font-size: 1.2rem; margin-bottom: 16px;
-    }
+    .cc-icon { width: 48px; height: 48px; background: var(--accent-bg); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.2rem; margin-bottom: 16px; }
     .cc h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
     .cc p { font-size: 0.85rem; color: var(--muted); margin-bottom: 24px; flex-grow: 1; }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border); padding: 26px 6%;
-      display: flex; justify-content: space-between; align-items: center;
-    }
+    footer { border-top: 1px solid var(--border); padding: 26px 6%; display: flex; justify-content: space-between; align-items: center; }
     footer p { font-size: 0.78rem; color: var(--muted); }
-    .ft-links { display: flex; gap: 18px; }
+    .ft-links { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; }
     .ft-links a { font-size: 0.78rem; color: var(--muted); transition: color 0.2s; }
     .ft-links a:hover { color: var(--accent); }
 
-    /* REVEAL */
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .reveal.visible { opacity: 1; transform: none; }
+    .hide-card { display: none; }
 
-    /* KEYFRAMES */
     @keyframes fadeDown { from { opacity:0; transform:translateY(-14px); } to { opacity:1; transform:none; } }
-    @keyframes fadeUp   { from { opacity:0; transform:translateY(14px); }  to { opacity:1; transform:none; } }
-    @keyframes bounce   { 0%,100% { transform:translateY(0); } 50% { transform:translateY(6px); } }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+    @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(6px); } }
     @keyframes pulse-dot { 0%,100% { opacity:1; } 50% { opacity:0.35; } }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .music-hero { grid-template-columns: 1fr; }
+      .music-visual { min-height: 260px; }
+      .vinyl { width: 190px; height: 190px; }
+    }
     @media (max-width: 840px) {
       nav { padding: 0 24px; }
       .nav-links, .nav-cv { display: none; }
       .hamburger { display: flex; }
-      .about-grid { grid-template-columns: 1fr; text-align: center; }
-      .about-img-box { max-width: 240px; margin: 0 auto; }
-      .about-cards { grid-template-columns: 1fr 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 10px; text-align: center; }
-      .ft-links { justify-content: center; }
     }
     @media (max-width: 520px) {
-      .about-cards { grid-template-columns: 1fr; }
-      .hero-btns { flex-direction: column; align-items: center; }
+      .hero-btns, .music-actions { flex-direction: column; align-items: stretch; }
+      .btn-solid, .btn-outline, .music-btn { justify-content: center; }
       .skills-grid { grid-template-columns: repeat(2, 1fr); }
       .section { padding: 72px 24px; }
+      #about { padding: 72px 24px; }
+      .music-grid { grid-template-columns: 1fr; }
+      .platform-info span { max-width: 160px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav id="nav">
     <a href="#home" class="nav-logo">Anushrut <span>Ghimire</span></a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#music">Music</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#certificates">Certifications</a></li>
       <li><a href="https://blog-two-silk-45.vercel.app/" target="_blank">Blog</a></li>
-      <li><a href="https://study-focus-1st-version.vercel.app/" target="_blank">Focus</a></li>
       <li><a href="https://research-lab-swart.vercel.app/" target="_blank">LAB</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:12px;">
@@ -266,262 +222,231 @@
   </nav>
 
   <div class="mobile-menu" id="mob">
-    <a href="#home"          onclick="closeMob()">Home</a>
-    <a href="#about"         onclick="closeMob()">About</a>
-    <a href="#skills"        onclick="closeMob()">Skills</a>
-    <a href="#certificates"  onclick="closeMob()">Certifications</a>
+    <a href="#home" onclick="closeMob()">Home</a>
+    <a href="#about" onclick="closeMob()">About</a>
+    <a href="#music" onclick="closeMob()">Music</a>
+    <a href="#skills" onclick="closeMob()">Skills</a>
+    <a href="#certificates" onclick="closeMob()">Certifications</a>
     <a href="https://blog-two-silk-45.vercel.app/" target="_blank">Blog</a>
     <a href="https://research-lab-swart.vercel.app/" target="_blank">LAB</a>
     <a href="https://study-focus-1st-version.vercel.app/" target="_blank">Focus</a>
     <a href="https://drive.google.com/file/d/1_o3WWgvI_xxp8hoZLi2basspg-ydeLkn/view?usp=drive_link" target="_blank" class="btn-solid" style="margin-top:4px;justify-content:center;">View CV</a>
   </div>
 
-  <!-- HERO -->
   <section id="home">
     <div class="hero-wrap">
-      <img src="anushrut1.jpg" alt="Anushrut Ghimire" class="hero-photo"
-        onerror="this.style.display='none';document.getElementById('hfb').style.display='flex';" />
+      <img src="anushrut1.jpg" alt="Anushrut Ghimire" class="hero-photo" onerror="this.style.display='none';document.getElementById('hfb').style.display='flex';" />
       <div id="hfb" class="hero-fallback"><i class="fas fa-user"></i></div>
-
       <p class="hero-hi">Hello, I'm</p>
       <h1 class="hero-name"><span>Anushrut Ghimire</span></h1>
-      <p class="hero-sub">Science student &amp; independent researcher passionate about Computer Science, AI, and Cybersecurity.</p>
-
+      <p class="hero-sub">Science student &amp; independent researcher passionate about Computer Science, AI, Cybersecurity, and creative digital production.</p>
       <div class="hero-btns">
-        <a href="https://drive.google.com/file/d/1_o3WWgvI_xxp8hoZLi2basspg-ydeLkn/view?usp=drive_link" target="_blank" class="btn-solid">
-          <i class="fas fa-download"></i> Download CV
-        </a>
-        <a href="mailto:anushrutghimire7@gmail.com" class="btn-outline">
-          <i class="fas fa-envelope"></i> Contact Me
-        </a>
+        <a href="https://drive.google.com/file/d/1_o3WWgvI_xxp8hoZLi2basspg-ydeLkn/view?usp=drive_link" target="_blank" class="btn-solid"><i class="fas fa-download"></i> Download CV</a>
+        <a href="mailto:anushrutghimire7@gmail.com" class="btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
       </div>
-
       <div class="hero-icons">
         <a href="https://anushrut.bio.link" target="_blank" title="All social links"><i class="fas fa-link"></i></a>
         <a href="mailto:anushrutghimire7@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
         <a href="https://blog-two-silk-45.vercel.app/" target="_blank" title="Blog"><i class="fas fa-pen-nib"></i></a>
         <a href="https://research-lab-swart.vercel.app/" target="_blank" title="Research Lab"><i class="fas fa-flask"></i></a>
+        <a href="#music" title="Beatable Boxy"><i class="fas fa-music"></i></a>
       </div>
+      <div class="scroll-cue"><span>Get to know more</span><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </section>
 
-      <div class="scroll-cue">
-        <span>Get to know more</span>
-        <i class="fas fa-chevron-down"></i>
+  <section id="about">
+    <div class="about-header reveal">
+      <small>GET TO KNOW MORE</small>
+      <h2>About Me</h2>
+    </div>
+    <div class="about-wrap">
+      <div class="about-card-grid">
+        <div class="about-card reveal"><div>🎓</div><h4>Education</h4><p>+2 Computer Science<br>Valmiki Shiksha Sadan · GPA 3.46</p></div>
+        <div class="about-card reveal"><div>🫂</div><h4>Volunteering</h4><p>Nepal Red Cross Society<br>Humanitarian member</p></div>
+        <div class="about-card reveal"><div>🏫</div><h4>SEE</h4><p>Small Heaven School<br>GPA 3.35</p></div>
+        <div class="about-card reveal"><div>🔬</div><h4>Research</h4><p>AI · Security · Physics<br>Independent work</p></div>
+      </div>
+      <div class="about-text reveal">
+        <p>I am Anushrut Ghimire, a self-directed researcher with a strong foundation in Computer Science and Mathematics. Driven by a passion for theoretical innovation, I explore the intersection of technology and physical systems, from Magnetic Propulsion Systems to AI Governance and Cybersecurity.</p>
+        <p>I combine technical proficiency in C and Kali Linux with a lifetime commitment to humanitarian values through the Nepal Red Cross Society. Under the creative identity <strong>Beatable Boxy</strong>, I also publish music across global and regional streaming platforms.</p>
+        <div class="live-badge"><span class="live-dot"></span> Latest: Ethical Hacking with Kali Linux (IBM, Coursera) — Feb 26, 2026</div>
       </div>
     </div>
   </section>
 
-<!-- ABOUT -->
-<section id="about" style="padding: 80px 5%; width: 100%;">
-
-  <!-- HEADER -->
-  <div style="text-align: center; margin-bottom: 60px;">
-    <small style="color: #6b7280; letter-spacing: 1px;">GET TO KNOW MORE</small>
-    <h2 style="font-size: 42px; margin-top: 10px;">About Me</h2>
-  </div>
-
-  <!-- FULL WIDTH GRID -->
-  <div style="width: 100%; max-width: 1200px; margin: auto;">
-
-    <!-- CARDS -->
-    <div style="
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      margin-bottom: 50px;
-    ">
-
-      <div style="padding: 25px; border: 1px solid #e5e7eb; border-radius: 15px;">
-        <div style="font-size: 28px;">🎓</div>
-        <h4 style="margin: 10px 0;">Education</h4>
-        <p style="color: #6b7280;">+2 Computer Science<br>Valmiki Shiksha Sadan · GPA 3.46</p>
-      </div>
-
-      <div style="padding: 25px; border: 1px solid #e5e7eb; border-radius: 15px;">
-        <div style="font-size: 28px;">🫂</div>
-        <h4 style="margin: 10px 0;">Volunteering</h4>
-        <p style="color: #6b7280;">Nepal Red Cross Society<br>Humanitarian member</p>
-      </div>
-
-      <div style="padding: 25px; border: 1px solid #e5e7eb; border-radius: 15px;">
-        <div style="font-size: 28px;">🏫</div>
-        <h4 style="margin: 10px 0;">SEE</h4>
-        <p style="color: #6b7280;">Small Heaven School<br>GPA 3.35</p>
-      </div>
-
-      <div style="padding: 25px; border: 1px solid #e5e7eb; border-radius: 15px;">
-        <div style="font-size: 28px;">🔬</div>
-        <h4 style="margin: 10px 0;">Research</h4>
-        <p style="color: #6b7280;">AI · Security · Physics<br>Independent work</p>
-      </div>
-
-    </div>
-
-    <!-- TEXT CONTENT -->
-    <div style="max-width: 900px; margin: auto; text-align: center;">
-
-      <p style="margin-bottom: 20px; color: #374151;">
-        I am Anushrut Ghimire, a self-directed researcher with a strong foundation in Computer Science and Mathematics. Driven by a passion for theoretical innovation, I explore the intersection of technology and physical systems, from Magnetic Propulsion Systems to AI Governance and Cybersecurity.
-      </p>
-
-      <p style="margin-bottom: 30px; color: #374151;">
-        I combine technical proficiency in C and Kali Linux with a lifetime commitment to humanitarian values through the Nepal Red Cross Society. My goal is to turn complex ideas into simple, secure, and future-ready solutions.
-      </p>
-
-    <!-- BADGE --> <div class="live-badge reveal"> <span class="live-dot"></span> Latest: Ethical Hacking with Kali Linux (IBM, Coursera) — Feb 26, 2026 </div>
-
-    </div>
-
-  </div>
-
-</section>
-  <!-- SKILLS -->
   <section id="skills" class="section">
     <div class="inner">
-      <div class="sec-header reveal">
-        <small>Explore my</small>
-        <h2>Technical Skills</h2>
-      </div>
+      <div class="sec-header reveal"><small>Explore my</small><h2>Technical Skills</h2></div>
       <div class="skills-grid" id="skillsGrid"></div>
     </div>
   </section>
 
-  <!-- CERTIFICATES -->
   <section id="certificates" class="section">
     <div class="inner">
-      <div class="sec-header reveal">
-        <small>Explore my</small>
-        <h2>Certifications</h2>
-      </div>
-
-      <div class="cg reveal">
-        <div class="cg-title">Coursera</div>
-        <div class="cg-grid">
-          <a href="/Coursera 0RE44UPGLV9Q.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-chart-bar"></i></div><div class="ci-text"><span>Overview of Data Visualization</span><small>Coursera</small></div></a>
-          <a href="/Coursera N2TZZUMKATR9.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-network-wired"></i></div><div class="ci-text"><span>Wireshark: Detect Network Anomalies</span><small>Coursera</small></div></a>
-          <a href="/Coursera QIYEWGMCTZ0H.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-table"></i></div><div class="ci-text"><span>Data Analysis using Microsoft Excel</span><small>Coursera</small></div></a>
-          <a href="/Coursera VHFHKDMIEZZ0.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fab fa-google"></i></div><div class="ci-text"><span>Getting Started in Google Analytics</span><small>Coursera</small></div></a>
-          <a href="/Coursera YDTCDD19D3VJ.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-chart-line"></i></div><div class="ci-text"><span>Construct Stock Market Indices</span><small>Coursera</small></div></a>
-          <a href="/Coursera YHZZN6RTFKZ3.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-file-alt"></i></div><div class="ci-text"><span>Resume to the Next Level with Canva</span><small>Coursera</small></div></a>
-          <a href="/Coursera J2PQ48M7QDMF.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-user-secret"></i></div><div class="ci-text"><span>Ethical Hacking with Kali Linux (IBM)</span><small>Coursera · Feb 2026</small></div></a>
-        </div>
-      </div>
-
-      <div class="cg reveal">
-        <div class="cg-title">UNITAR / United Nations</div>
-        <div class="cg-grid">
-          <a href="/Certificate_of_Completion.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-globe"></i></div><div class="ci-text"><span>Weapons &amp; Ammunition Management</span><small>UNITAR · WAM &amp; DDR</small></div></a>
-          <a href="/Nanomaterials_Safety_Certificate.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-atom"></i></div><div class="ci-text"><span>Nanomaterials Safety</span><small>UNITAR</small></div></a>
-        </div>
-      </div>
-
-      <div class="cg reveal">
-        <div class="cg-title">Mathematics Olympiad</div>
-        <div class="cg-grid">
-          <a href="/Anushrut Ghimire_Bagmati_DMO_2025.png" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-trophy"></i></div><div class="ci-text"><span>District Level — Bagmati DMO 2025</span><small>Mathematics Olympiad</small></div></a>
-          <a href="IMG_0078.PNG" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-medal"></i></div><div class="ci-text"><span>National Level — Pre-TST Qualifier</span><small>Mathematics Olympiad</small></div></a>
-        </div>
-      </div>
-
-      <div class="cg reveal">
-        <div class="cg-title">Udemy</div>
-        <div class="cg-grid">
-          <a href="/UC-d23878ec-83ec-410e-bd37-d6cd6d47cece.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-balance-scale"></i></div><div class="ci-text"><span>AI Governance &amp; Compliance for HR</span><small>Udemy</small></div></a>
-          <a href="/UC-f9c18bd1-e7df-4253-8e85-0d0ae5ad2ab5.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-brain"></i></div><div class="ci-text"><span>Master Google ADK — Multi-Agent AI</span><small>Udemy</small></div></a>
-        </div>
-      </div>
-
-      <div class="cg reveal">
-        <div class="cg-title">Other</div>
-        <div class="cg-grid">
-          <a href="/Certificate_Supporting_People_Living_with_Dementia_Introductory 2.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-heart"></i></div><div class="ci-text"><span>Supporting People Living with Dementia</span><small>Introductory</small></div></a>
-          <a href="/Know the OS.png" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-terminal"></i></div><div class="ci-text"><span>Know the OS — Ethical Hacking</span><small>HackerX</small></div></a>
-        </div>
-      </div>
+      <div class="sec-header reveal"><small>Explore my</small><h2>Certifications</h2></div>
+      <div class="cg reveal"><div class="cg-title">Coursera</div><div class="cg-grid">
+        <a href="/Coursera 0RE44UPGLV9Q.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-chart-bar"></i></div><div class="ci-text"><span>Overview of Data Visualization</span><small>Coursera</small></div></a>
+        <a href="/Coursera N2TZZUMKATR9.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-network-wired"></i></div><div class="ci-text"><span>Wireshark: Detect Network Anomalies</span><small>Coursera</small></div></a>
+        <a href="/Coursera QIYEWGMCTZ0H.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-table"></i></div><div class="ci-text"><span>Data Analysis using Microsoft Excel</span><small>Coursera</small></div></a>
+        <a href="/Coursera VHFHKDMIEZZ0.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fab fa-google"></i></div><div class="ci-text"><span>Getting Started in Google Analytics</span><small>Coursera</small></div></a>
+        <a href="/Coursera YDTCDD19D3VJ.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-chart-line"></i></div><div class="ci-text"><span>Construct Stock Market Indices</span><small>Coursera</small></div></a>
+        <a href="/Coursera YHZZN6RTFKZ3.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-file-alt"></i></div><div class="ci-text"><span>Resume to the Next Level with Canva</span><small>Coursera</small></div></a>
+        <a href="/Coursera J2PQ48M7QDMF.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-user-secret"></i></div><div class="ci-text"><span>Ethical Hacking with Kali Linux (IBM)</span><small>Coursera · Feb 2026</small></div></a>
+      </div></div>
+      <div class="cg reveal"><div class="cg-title">UNITAR / United Nations</div><div class="cg-grid">
+        <a href="/Certificate_of_Completion.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-globe"></i></div><div class="ci-text"><span>Weapons &amp; Ammunition Management</span><small>UNITAR · WAM &amp; DDR</small></div></a>
+        <a href="/Nanomaterials_Safety_Certificate.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-atom"></i></div><div class="ci-text"><span>Nanomaterials Safety</span><small>UNITAR</small></div></a>
+      </div></div>
+      <div class="cg reveal"><div class="cg-title">Mathematics Olympiad</div><div class="cg-grid">
+        <a href="/Anushrut Ghimire_Bagmati_DMO_2025.png" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-trophy"></i></div><div class="ci-text"><span>District Level — Bagmati DMO 2025</span><small>Mathematics Olympiad</small></div></a>
+        <a href="IMG_0078.PNG" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-medal"></i></div><div class="ci-text"><span>National Level — Pre-TST Qualifier</span><small>Mathematics Olympiad</small></div></a>
+      </div></div>
+      <div class="cg reveal"><div class="cg-title">Udemy</div><div class="cg-grid">
+        <a href="/UC-d23878ec-83ec-410e-bd37-d6cd6d47cece.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-balance-scale"></i></div><div class="ci-text"><span>AI Governance &amp; Compliance for HR</span><small>Udemy</small></div></a>
+        <a href="/UC-f9c18bd1-e7df-4253-8e85-0d0ae5ad2ab5.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-brain"></i></div><div class="ci-text"><span>Master Google ADK — Multi-Agent AI</span><small>Udemy</small></div></a>
+      </div></div>
+      <div class="cg reveal"><div class="cg-title">Other</div><div class="cg-grid">
+        <a href="/Certificate_Supporting_People_Living_with_Dementia_Introductory 2.pdf" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-heart"></i></div><div class="ci-text"><span>Supporting People Living with Dementia</span><small>Introductory</small></div></a>
+        <a href="/Know the OS.png" target="_blank" class="ci"><div class="ci-icon"><i class="fas fa-terminal"></i></div><div class="ci-text"><span>Know the OS — Ethical Hacking</span><small>HackerX</small></div></a>
+      </div></div>
     </div>
   </section>
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <div class="inner">
-    <div class="sec-header reveal">
-      <small>Get in touch</small>
-      <h2>Contact Me</h2>
+
+  <section id="music" class="section">
+    <div class="music-inner">
+      <div class="music-hero">
+        <div class="reveal">
+          <div class="music-kicker"><i class="fas fa-wave-square"></i> Creative Identity</div>
+          <h2 class="music-title">Beatable Boxy <span>by Anushrut Ghimire</span></h2>
+          <p class="music-desc">A dedicated music presence connecting Anushrut Ghimire's creative digital production work with major streaming, regional hubs, and producer/DJ platforms worldwide.</p>
+          <div class="music-actions">
+            <a class="music-btn primary" href="https://open.spotify.com/artist/beatable-boxy" target="_blank"><i class="fab fa-spotify"></i> Listen on Spotify</a>
+            <a class="music-btn ghost" href="https://soundcloud.com/beatableboxy" target="_blank"><i class="fab fa-soundcloud"></i> SoundCloud</a>
+            <a class="music-btn ghost" href="https://beatport.com/artist/beatable-boxy/1183563" target="_blank"><i class="fas fa-headphones"></i> Beatport</a>
+          </div>
+        </div>
+        <div class="music-visual reveal">
+          <div class="vinyl"></div>
+          <div class="visual-label">
+            <strong>Beatable Boxy</strong>
+            <small>Global streaming · Regional hubs · DJ platforms</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="music-tabs reveal">
+        <button class="tab-btn active" data-filter="all">All Platforms</button>
+        <button class="tab-btn" data-filter="global">Major Global</button>
+        <button class="tab-btn" data-filter="regional">Regional Hubs</button>
+        <button class="tab-btn" data-filter="producer">Producer & DJ</button>
+      </div>
+
+      <div class="music-grid" id="musicGrid"></div>
+      <p class="music-note reveal">Click any platform card to open the official Beatable Boxy artist page in a new tab.</p>
     </div>
+  </section>
 
-    <div class="contact-grid">
-      <div class="cc reveal">
-        <div class="cc-icon"><i class="fas fa-link"></i></div>
-        <h3>Social Media</h3>
-        <p>Follow my research updates, blog posts, and insights across all my platforms.</p>
-        <a href="https://anushrut.bio.link" target="_blank" class="btn-solid" style="align-self:flex-start;">
-          Visit Links <i class="fas fa-external-link-alt" style="font-size:0.75rem;"></i>
-        </a>
-      </div>
-
-      <div class="cc reveal">
-        <div class="cc-icon"><i class="fas fa-file-alt"></i></div>
-        <h3>Curriculum Vitae</h3>
-        <p>Check my CV</p>
-        <a href="https://drive.google.com/file/d/1_o3WWgvI_xxp8hoZLi2basspg-ydeLkn/view?usp=drive_link" target="_blank" class="btn-solid" style="align-self:flex-start;">
-          View CV <i class="fas fa-external-link-alt" style="font-size:0.75rem;"></i>
-        </a>
-      </div>
-
-      <div class="cc reveal">
-        <div class="cc-icon"><i class="fas fa-envelope"></i></div>
-        <h3>Email Me</h3>
-        <p>Have a question or want to collaborate? Reach out directly anytime.</p>
-        <a href="mailto:anushrutghimire7@gmail.com" class="btn-outline" style="align-self:flex-start;">
-          anushrutghimire7@gmail.com
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+  <section id="contact" class="section">
+    <div class="inner">
+      <div class="sec-header reveal"><small>Get in touch</small><h2>Contact Me</h2></div>
+      <div class="contact-grid">
+        <div class="cc reveal"><div class="cc-icon"><i class="fas fa-link"></i></div><h3>Social Media</h3><p>Follow my research updates, blog posts, and insights across all my platforms.</p><a href="https://anushrut.bio.link" target="_blank" class="btn-solid" style="align-self:flex-start;">Visit Links <i class="fas fa-external-link-alt" style="font-size:0.75rem;"></i></a></div>
+        <div class="cc reveal"><div class="cc-icon"><i class="fas fa-file-alt"></i></div><h3>Curriculum Vitae</h3><p>Check my CV and academic profile.</p><a href="https://drive.google.com/file/d/1_o3WWgvI_xxp8hoZLi2basspg-ydeLkn/view?usp=drive_link" target="_blank" class="btn-solid" style="align-self:flex-start;">View CV <i class="fas fa-external-link-alt" style="font-size:0.75rem;"></i></a></div>
+        <div class="cc reveal"><div class="cc-icon"><i class="fas fa-envelope"></i></div><h3>Email Me</h3><p>Have a question or want to collaborate? Reach out directly anytime.</p><a href="mailto:anushrutghimire7@gmail.com" class="btn-outline" style="align-self:flex-start;">anushrutghimire7@gmail.com</a></div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2026 Anushrut Ghimire. All Rights Reserved.</p>
     <div class="ft-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
+      <a href="#music">Music</a>
       <a href="#certificates">Certifications</a>
       <a href="mailto:anushrutghimire7@gmail.com">Email</a>
     </div>
   </footer>
 
   <script>
-    /* nav */
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
 
-    /* mobile menu */
     const ham = document.getElementById('ham');
     const mob = document.getElementById('mob');
     ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
     function closeMob() { ham.classList.remove('open'); mob.classList.remove('open'); }
 
-    /* skills */
+    const musicLinks = [
+      { cat:'global', name:'Spotify', detail:'Major Global Streaming', url:'https://open.spotify.com/artist/beatable-boxy', icon:'fab fa-spotify', brand:'#1DB954', glow:'rgba(29,185,84,0.34)' },
+      { cat:'global', name:'Apple Music', detail:'Major Global Streaming', url:'https://music.apple.com/artist/beatable-boxy/1721516035', icon:'fab fa-apple', brand:'#fa57c1', glow:'rgba(250,87,193,0.32)' },
+      { cat:'global', name:'YouTube Music', detail:'Major Global Streaming', url:'https://music.youtube.com/channel/UC-S88nF7K0fI-p7Vj9v6p8g', icon:'fab fa-youtube', brand:'#ff0033', glow:'rgba(255,0,51,0.28)' },
+      { cat:'global', name:'Amazon Music', detail:'Major Global Streaming', url:'https://music.amazon.com/artists/B0CPW8B5Z8/beatable-boxy', icon:'fab fa-amazon', brand:'#00A8E1', glow:'rgba(0,168,225,0.28)' },
+      { cat:'global', name:'TIDAL', detail:'Hi-Fi Streaming', url:'https://tidal.com/browse/artist/44521743', icon:'fas fa-gem', brand:'#ffffff', glow:'rgba(255,255,255,0.22)' },
+      { cat:'global', name:'Deezer', detail:'Major Global Streaming', url:'https://deezer.com/artist/243542981', icon:'fas fa-music', brand:'#a855f7', glow:'rgba(168,85,247,0.32)' },
+      { cat:'global', name:'Pandora', detail:'USA Streaming Radio', url:'https://pandora.com/artist/beatable-boxy', icon:'fas fa-p', brand:'#00A0EE', glow:'rgba(0,160,238,0.28)' },
+      { cat:'regional', name:'Yandex Music', detail:'Russia / CIS', url:'https://music.yandex.ru/artist/23155796', icon:'fas fa-y', brand:'#ffcc00', glow:'rgba(255,204,0,0.28)' },
+      { cat:'regional', name:'Zvuk Hi-Fi', detail:'Russia / CIS', url:'https://zvuk.com/artist/213124441', icon:'fas fa-volume-up', brand:'#c084fc', glow:'rgba(192,132,252,0.28)' },
+      { cat:'regional', name:'JioSaavn', detail:'South Asia', url:'https://jiosaavn.com/artist/beatable-boxy/...', icon:'fas fa-music', brand:'#2bc5b4', glow:'rgba(43,197,180,0.28)' },
+      { cat:'regional', name:'Gaana', detail:'South Asia', url:'https://gaana.com/artist/beatable-boxy', icon:'fas fa-g', brand:'#ef4444', glow:'rgba(239,68,68,0.28)' },
+      { cat:'regional', name:'Wynk Music', detail:'South Asia', url:'https://wynk.in/music/artist/beatable-boxy/...', icon:'fas fa-headphones-alt', brand:'#ff4f8b', glow:'rgba(255,79,139,0.28)' },
+      { cat:'regional', name:'Boomplay', detail:'Africa', url:'https://boomplay.com/artists/23737620', icon:'fas fa-bolt', brand:'#facc15', glow:'rgba(250,204,21,0.28)' },
+      { cat:'regional', name:'Anghami', detail:'MENA Region', url:'https://play.anghami.com/artist/19448897', icon:'fas fa-play', brand:'#7c3aed', glow:'rgba(124,58,237,0.28)' },
+      { cat:'regional', name:'iHeartRadio', detail:'USA / Radio', url:'https://iheart.com/artist/beatable-boxy-41908051', icon:'fas fa-heart', brand:'#c6002b', glow:'rgba(198,0,43,0.28)' },
+      { cat:'producer', name:'Beatport', detail:'Store for DJs', url:'https://beatport.com/artist/beatable-boxy/1183563', icon:'fas fa-record-vinyl', brand:'#01ff95', glow:'rgba(1,255,149,0.28)' },
+      { cat:'producer', name:'Beatsource', detail:'DJ Streaming', url:'https://beatsource.com/artist/beatable-boxy/1183563', icon:'fas fa-compact-disc', brand:'#f97316', glow:'rgba(249,115,22,0.28)' },
+      { cat:'producer', name:'SoundCloud', detail:'Demos & Dips', url:'https://soundcloud.com/beatableboxy', icon:'fab fa-soundcloud', brand:'#ff5500', glow:'rgba(255,85,0,0.32)' }
+    ];
+
+    const musicGrid = document.getElementById('musicGrid');
+    function renderMusic(filter = 'all') {
+      musicGrid.innerHTML = '';
+      musicLinks.forEach((m, index) => {
+        const card = document.createElement('a');
+        card.href = m.url;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+        card.className = 'music-card reveal' + (filter !== 'all' && m.cat !== filter ? ' hide-card' : '');
+        card.style.setProperty('--brand', m.brand);
+        card.style.setProperty('--glow', m.glow);
+        card.style.transitionDelay = (index * 0.025) + 's';
+        card.innerHTML = `
+          <div class="platform-icon"><i class="${m.icon}"></i></div>
+          <div class="platform-info"><strong>${m.name}</strong><span>${m.detail}</span></div>
+          <div class="open-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+        `;
+        musicGrid.appendChild(card);
+        obs.observe(card);
+      });
+    }
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderMusic(btn.dataset.filter);
+      });
+    });
+
     const skills = [
-      { i:'fab fa-python',         c:'#f59e0b', n:'Python',           s:'Automation · Logic' },
-      { i:'fas fa-code',           c:'#3b82f6', n:'C Programming',    s:'Structures · Memory' },
-      { i:'fab fa-linux',          c:'#374151', n:'Kali Linux',       s:'Security · CLI' },
-      { i:'fas fa-brain',          c:'#8b5cf6', n:'Multi-Agent AI',   s:'Agents · Automation' },
-      { i:'fas fa-network-wired',  c:'#06b6d4', n:'Wireshark',        s:'Traffic Analysis' },
-      { i:'fas fa-chart-line',     c:'#22c55e', n:'Data Analysis',    s:'Excel · Viz' },
-      { i:'fab fa-google',         c:'#ef4444', n:'Google Analytics', s:'Tracking · Reports' },
-      { i:'fas fa-shield-alt',     c:'#6366f1', n:'Cybersecurity',    s:'Network · Hacking' },
-      { i:'fas fa-balance-scale',  c:'#d97706', n:'AI Governance',    s:'Ethics · Compliance' },
-      { i:'fas fa-globe',          c:'#2563eb', n:'UN Safety Policy', s:'WAM · DDR' },
-      { i:'fas fa-atom',           c:'#ec4899', n:'Nanomaterials',    s:'Lab · Protocol' },
-      { i:'fas fa-search',         c:'#f97316', n:'Research',         s:'Analysis · Reporting' },
-      { i:'fas fa-user-secret',    c:'#84cc16', n:'Ethical Hacking',  s:'Kali · Practice' },
-      { i:'fas fa-binoculars',     c:'#10b981', n:'Recon & Scanning', s:'Footprinting' },
-      { i:'fas fa-terminal',       c:'#38bdf8', n:'Linux Security',   s:'Hardening' },
-      { i:'fas fa-bug',            c:'#f87171', n:'Vulnerability',    s:'Flaws · Mitigation' },
-      { i:'fas fa-comments',       c:'#34d399', n:'Communication',    s:'Technical Writing' },
+      { i:'fab fa-python', c:'#f59e0b', n:'Python', s:'Automation · Logic' },
+      { i:'fas fa-code', c:'#3b82f6', n:'C Programming', s:'Structures · Memory' },
+      { i:'fab fa-linux', c:'#374151', n:'Kali Linux', s:'Security · CLI' },
+      { i:'fas fa-brain', c:'#8b5cf6', n:'Multi-Agent AI', s:'Agents · Automation' },
+      { i:'fas fa-network-wired', c:'#06b6d4', n:'Wireshark', s:'Traffic Analysis' },
+      { i:'fas fa-chart-line', c:'#22c55e', n:'Data Analysis', s:'Excel · Viz' },
+      { i:'fab fa-google', c:'#ef4444', n:'Google Analytics', s:'Tracking · Reports' },
+      { i:'fas fa-shield-alt', c:'#6366f1', n:'Cybersecurity', s:'Network · Hacking' },
+      { i:'fas fa-balance-scale', c:'#d97706', n:'AI Governance', s:'Ethics · Compliance' },
+      { i:'fas fa-globe', c:'#2563eb', n:'UN Safety Policy', s:'WAM · DDR' },
+      { i:'fas fa-atom', c:'#ec4899', n:'Nanomaterials', s:'Lab · Protocol' },
+      { i:'fas fa-search', c:'#f97316', n:'Research', s:'Analysis · Reporting' },
+      { i:'fas fa-user-secret', c:'#84cc16', n:'Ethical Hacking', s:'Kali · Practice' },
+      { i:'fas fa-binoculars', c:'#10b981', n:'Recon & Scanning', s:'Footprinting' },
+      { i:'fas fa-terminal', c:'#38bdf8', n:'Linux Security', s:'Hardening' },
+      { i:'fas fa-bug', c:'#f87171', n:'Vulnerability', s:'Flaws · Mitigation' },
+      { i:'fas fa-comments', c:'#34d399', n:'Communication', s:'Technical Writing' },
     ];
     const g = document.getElementById('skillsGrid');
     skills.forEach((s, i) => {
@@ -532,11 +457,11 @@
       g.appendChild(el);
     });
 
-    /* scroll reveal */
     const obs = new IntersectionObserver(es => {
       es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    renderMusic();
   </script>
 </body>
 </html>
