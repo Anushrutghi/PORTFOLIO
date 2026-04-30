@@ -251,6 +251,29 @@
     .live-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-bg); color: var(--accent); font-size: 0.74rem; font-weight: 600; padding: 8px 14px; border-radius: 8px; }
     .live-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; animation: pulse-dot 2s infinite; }
 
+
+    #publications { background: radial-gradient(circle at top left, rgba(37,99,235,0.18), transparent 30%), radial-gradient(circle at bottom right, rgba(168,85,247,0.12), transparent 32%), var(--dark); color: var(--dark-text); position: relative; overflow: hidden; }
+    #publications::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(to bottom, black, transparent 90%); pointer-events: none; }
+    .pub-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    #publications .sec-header small { color: #93c5fd; }
+    #publications .sec-header h2 { color: #fff; }
+    .pub-intro { max-width: 760px; margin: -34px auto 34px; text-align: center; color: var(--dark-muted); font-size: 0.92rem; }
+    .pub-groups { display: grid; gap: 28px; }
+    .pub-group-title { display: flex; align-items: center; gap: 12px; color: #fff; font-size: 1rem; font-weight: 800; margin-bottom: 14px; }
+    .pub-group-title::after { content: ''; height: 1px; flex: 1; background: rgba(255,255,255,0.12); }
+    .pub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); gap: 14px; }
+    .pub-card { display: flex; align-items: center; gap: 14px; min-height: 104px; padding: 18px; border-radius: 22px; background: rgba(255,255,255,0.055); border: 1px solid var(--dark-border); color: #fff; transition: transform 0.25s, border-color 0.25s, background 0.25s; position: relative; overflow: hidden; }
+    .pub-card::after { content: ''; position: absolute; inset: auto -45px -65px auto; width: 140px; height: 140px; border-radius: 50%; background: var(--glow, rgba(37,99,235,0.25)); filter: blur(22px); opacity: 0; transition: opacity 0.25s; }
+    .pub-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.30); background: rgba(255,255,255,0.085); }
+    .pub-card:hover::after { opacity: 1; }
+    .pub-logo { width: 52px; height: 52px; flex: 0 0 52px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.10); position: relative; z-index: 1; overflow: hidden; }
+    .pub-logo img { width: 31px; height: 31px; object-fit: contain; border-radius: 8px; }
+    .pub-info { position: relative; z-index: 1; min-width: 0; }
+    .pub-info strong { display: block; font-size: 0.95rem; color: #fff; }
+    .pub-info span { display: block; color: var(--dark-muted); font-size: 0.72rem; line-height: 1.45; }
+    .pub-arrow { margin-left: auto; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; background: rgba(255,255,255,0.07); position: relative; z-index: 1; transition: transform 0.25s, background 0.25s; }
+    .pub-card:hover .pub-arrow { transform: translateX(3px); background: rgba(255,255,255,0.14); }
+
     #music { background: radial-gradient(circle at top left, rgba(37,99,235,0.18), transparent 30%), radial-gradient(circle at bottom right, rgba(168,85,247,0.12), transparent 32%), var(--dark); color: var(--dark-text); position: relative; overflow: hidden; }
     #music::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(to bottom, black, transparent 85%); pointer-events: none; }
     .music-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
@@ -362,6 +385,7 @@
       <li><a href="#music">Music</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#certificates">Certifications</a></li>
+      <li><a href="#publications">Publications</a></li>
       <li><a href="https://blog-two-silk-45.vercel.app/" target="_blank">Blog</a></li>
       <li><a href="https://research-lab-swart.vercel.app/" target="_blank">LAB</a></li>
     </ul>
@@ -377,6 +401,7 @@
     <a href="#music" onclick="closeMob()">Music</a>
     <a href="#skills" onclick="closeMob()">Skills</a>
     <a href="#certificates" onclick="closeMob()">Certifications</a>
+    <a href="#publications" onclick="closeMob()">Publications</a>
     <a href="https://blog-two-silk-45.vercel.app/" target="_blank">Blog</a>
     <a href="https://research-lab-swart.vercel.app/" target="_blank">LAB</a>
     <a href="https://study-focus-1st-version.vercel.app/" target="_blank">Focus</a>
@@ -463,6 +488,40 @@
     </div>
   </section>
 
+
+  <section id="publications" class="section">
+    <div class="pub-inner">
+      <div class="sec-header reveal"><small>Research Presence</small><h2>Publications & Academic Profiles</h2></div>
+      <p class="pub-intro reveal">Clickable research records, preprints, archives, and academic profiles connected with Anushrut Ghimire's independent research work.</p>
+
+      <div class="pub-groups">
+        <div class="pub-group reveal">
+          <div class="pub-group-title"><i class="fas fa-file-lines"></i> Paper Repositories</div>
+          <div class="pub-grid">
+            <a class="pub-card reveal" href="https://figshare.com/articles/preprint/Federated_Explainable_Deep_Learning_Framework/32136790" target="_blank" rel="noopener noreferrer" style="--glow:rgba(56,189,248,0.30);"><div class="pub-logo"><img src="https://www.google.com/s2/favicons?domain=figshare.com&sz=64" alt="Figshare logo"></div><div class="pub-info"><strong>Figshare</strong><span>Federated Explainable Deep Learning Framework</span></div><div class="pub-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div></a>
+            <a class="pub-card reveal" href="https://figshare.com/articles/journal_contribution/Anushrut_s_Theory_of_Total_Energy_Recirculation/32135992" target="_blank" rel="noopener noreferrer" style="--glow:rgba(56,189,248,0.30);"><div class="pub-logo"><img src="https://www.google.com/s2/favicons?domain=figshare.com&sz=64" alt="Figshare logo"></div><div class="pub-info"><strong>Figshare</strong><span>Anushrut's Theory of Total Energy Recirculation</span></div><div class="pub-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div></a>
+            <a class="pub-card reveal" href="https://zenodo.org/records/19923124" target="_blank" rel="noopener noreferrer" style="--glow:rgba(96,165,250,0.30);"><div class="pub-logo"><img src="https://www.google.com/s2/favicons?domain=zenodo.org&sz=64" alt="Zenodo logo"></div><div class="pub-info"><strong>Zenodo</strong><span>Research record and archived scholarly output</span></div><div class="pub-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div></a>
+            <a class="pub-card reveal" href="https://zenodo.org/records/19923551" target="_blank" rel="noopener noreferrer" style="--glow:rgba(96,165,250,0.30);"><div class="pub-logo"><img src="https://www.google.com/s2/favicons?domain=zenodo.org&sz=64" alt="Zenodo logo"></div><div class="pub-info"><strong>Zenodo</strong><span>Research record and archived scholarly output</span></div><div class="pub-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div></a>
+            <a class="pub-card reveal" href="https://archive.org/details/anushruts-theory-of-total-energy-recirculation" target="_blank" rel="noopener noreferrer" style="--glow:rgba(245,158,11,0.30);"><div class="pub-logo"><img src="https://www.google.com/s2/favicons?domain=archive.org&sz=64" alt="Internet Archive logo"></div><div class="pub-info"><strong>Internet Archive</strong><span>Anushrut's Theory of Total Energy Recirculation</span></div><div class="pub-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div></a>
+            <a class="pub-card reveal" href="https://archive.org/details/FEDLF" target="_blank" rel="noopener noreferrer" style="--glow:rgba(245,158,11,0.30);"><div class="pub-logo"><img src="https://www.google.com/s2/favicons?domain=archive.org&sz=64" alt="Internet Archive logo"></div><div class="pub-info"><strong>Internet Archive</strong><span>FEDLF archived research file</span></div><div class="pub-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div></a>
+          </div>
+        </div>
+
+        <div class="pub-group reveal"><div class="pub-group-title"><i class="fas fa-scroll"></i> SSRN Papers</div><div class="pub-grid">
+          <a class="pub-card reveal" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6667978" target="_blank" rel="noopener noreferrer" style="--glow:rgba(34,197,94,0.28);"><div class="pub-logo"><img src="https://www.google.com/s2/favicons?domain=ssrn.com&sz=64" alt="SSRN logo"></div><div class="pub-info"><strong>SSRN</strong><span>Working paper / preprint abstract page</span></div><div class="pub-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div></a>
+          <a class="pub-card reveal" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371118" target="_blank" rel="noopener noreferrer" style="--glow:rgba(34,197,94,0.28);"><div class="pub-logo"><img src="https://www.google.com/s2/favicons?domain=ssrn.com&sz=64" alt="SSRN logo"></div><div class="pub-info"><strong>SSRN</strong><span>Working paper / preprint abstract page</span></div><div class="pub-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div></a>
+          <a class="pub-card reveal" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6683179" target="_blank" rel="noopener noreferrer" style="--glow:rgba(34,197,94,0.28);"><div class="pub-logo"><img src="https://www.google.com/s2/favicons?domain=ssrn.com&sz=64" alt="SSRN logo"></div><div class="pub-info"><strong>SSRN</strong><span>Working paper / preprint abstract page</span></div><div class="pub-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div></a>
+        </div></div>
+
+        <div class="pub-group reveal"><div class="pub-group-title"><i class="fas fa-user-graduate"></i> Academic Profiles</div><div class="pub-grid">
+          <a class="pub-card reveal" href="https://scholar.google.com/citations?user=J0fibe8AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style="--glow:rgba(66,133,244,0.30);"><div class="pub-logo"><img src="https://www.google.com/s2/favicons?domain=scholar.google.com&sz=64" alt="Google Scholar logo"></div><div class="pub-info"><strong>Google Scholar</strong><span>Academic citation profile</span></div><div class="pub-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div></a>
+          <a class="pub-card reveal" href="https://independent.academia.edu/GhimireAnushrut" target="_blank" rel="noopener noreferrer" style="--glow:rgba(20,184,166,0.30);"><div class="pub-logo"><img src="https://www.google.com/s2/favicons?domain=academia.edu&sz=64" alt="Academia.edu logo"></div><div class="pub-info"><strong>Academia.edu</strong><span>Independent researcher profile</span></div><div class="pub-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div></a>
+          <a class="pub-card reveal" href="https://orcid.org/0009-0001-9583-4176" target="_blank" rel="noopener noreferrer" style="--glow:rgba(166,206,57,0.30);"><div class="pub-logo"><img src="https://www.google.com/s2/favicons?domain=orcid.org&sz=64" alt="ORCID logo"></div><div class="pub-info"><strong>ORCID</strong><span>0009-0001-9583-4176</span></div><div class="pub-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div></a>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
   <section id="music" class="section">
     <div class="music-inner">
       <div class="music-hero">
@@ -521,6 +580,7 @@
       <a href="#about">About</a>
       <a href="#music">Music</a>
       <a href="#certificates">Certifications</a>
+      <a href="#publications">Publications</a>
       <a href="mailto:anushrutghimire7@gmail.com">Email</a>
     </div>
   </footer>
