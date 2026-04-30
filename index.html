@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -311,105 +312,372 @@
     .ci-text small { font-size: 0.7rem; color: var(--muted); }
 
 
+/* ================= REDESIGNED RESEARCH / PUBLICATION SECTION ONLY ================= */
 
     #research {
-      background:
-        radial-gradient(circle at 8% 12%, rgba(37,99,235,0.10), transparent 28%),
-        radial-gradient(circle at 92% 20%, rgba(139,92,246,0.10), transparent 30%),
-        var(--white);
+      background: var(--bg);
       position: relative;
       overflow: hidden;
     }
+
     #research::before {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(37,99,235,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.045) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mask-image: linear-gradient(to bottom, black, transparent 75%);
+      background:
+        radial-gradient(circle at 12% 12%, rgba(37,99,235,0.10), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(124,58,237,0.09), transparent 30%);
       pointer-events: none;
     }
-    #research .inner { position: relative; z-index: 1; }
-    .research-lead { max-width: 820px; margin: -34px auto 34px; text-align: center; color: var(--muted); font-size: 0.94rem; }
-    .research-hero-panel { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 20px; align-items: stretch; margin-bottom: 36px; }
-    .research-hero-card {
-      background: linear-gradient(135deg, #0f172a, #1e293b 55%, #2563eb);
-      color: #fff; border-radius: 28px; padding: 34px; position: relative; overflow: hidden;
-      box-shadow: 0 24px 70px rgba(15,23,42,0.24);
+
+    #research .inner {
+      max-width: 1150px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
-    .research-hero-card::after { content: ''; position: absolute; width: 260px; height: 260px; border-radius: 50%; right: -90px; top: -80px; background: rgba(255,255,255,0.12); }
-    .research-hero-card h3 { font-size: clamp(1.45rem, 4vw, 2.2rem); line-height: 1.2; margin: 10px 0 14px; position: relative; z-index: 1; }
-    .research-hero-card p { color: rgba(255,255,255,0.78); max-width: 680px; position: relative; z-index: 1; }
-    .research-kicker { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; padding: 8px 12px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; position: relative; z-index: 1; }
-    .research-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; position: relative; z-index: 1; }
-    .research-action { display: inline-flex; align-items: center; gap: 8px; border-radius: 12px; padding: 11px 15px; font-size: 0.8rem; font-weight: 800; transition: transform 0.25s, background 0.25s; }
-    .research-action.primary { background: #fff; color: #0f172a; }
-    .research-action.ghost { background: rgba(255,255,255,0.10); color: #fff; border: 1px solid rgba(255,255,255,0.15); }
-    .research-action:hover { transform: translateY(-3px); }
-    .research-metrics-card { background: rgba(255,255,255,0.88); border: 1px solid rgba(37,99,235,0.14); border-radius: 28px; padding: 24px; box-shadow: 0 16px 50px rgba(37,99,235,0.09); backdrop-filter: blur(12px); }
-    .research-meter-title { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
-    .research-meter-title strong { font-size: 1rem; }
-    .sync-dot { display: inline-flex; align-items: center; gap: 7px; color: #16a34a; font-size: 0.72rem; font-weight: 800; }
-    .sync-dot::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 6px rgba(34,197,94,0.14); }
-    .research-dashboard { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .research-stat { background: var(--bg); border: 1px solid var(--border); border-radius: 18px; padding: 19px 14px; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
-    .research-stat:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 32px rgba(37,99,235,0.08); }
-    .research-stat h3 { color: var(--accent); font-size: 1.8rem; line-height: 1.1; }
-    .research-stat p { color: var(--muted); font-size: 0.78rem; }
-    .research-profiles { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 8px 0 42px; }
-    .research-profile { background: var(--accent-bg); color: var(--accent); border: 1px solid rgba(37,99,235,0.18); border-radius: 999px; padding: 11px 16px; font-size: 0.82rem; font-weight: 800; display: inline-flex; gap: 8px; align-items: center; transition: transform 0.25s, background 0.25s, color 0.25s; }
-    .research-profile:hover { background: var(--accent); color: #fff; transform: translateY(-3px); }
-    .research-group { margin-bottom: 44px; }
-    .research-title { font-size: 1rem; font-weight: 800; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-    .research-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .publication-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(295px, 1fr)); gap: 16px; }
-    .publication-card { background: rgba(255,255,255,0.92); border: 1px solid var(--border); border-radius: 24px; padding: 22px; position: relative; overflow: hidden; min-height: 265px; display: flex; flex-direction: column; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
-    .publication-card::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 5px; background: var(--pub-color, var(--accent)); }
-    .publication-card::after { content: ''; position: absolute; right: -42px; top: -42px; width: 116px; height: 116px; border-radius: 50%; background: var(--pub-soft, rgba(37,99,235,0.08)); }
-    .publication-card:hover { transform: translateY(-7px); border-color: var(--pub-color, var(--accent)); box-shadow: 0 18px 48px rgba(15,23,42,0.10); }
-    .pub-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 15px; position: relative; z-index: 1; }
-    .pub-icon { width: 46px; height: 46px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: var(--pub-color, var(--accent)); background: var(--pub-soft, var(--accent-bg)); font-size: 1.2rem; }
-    .pub-badge { display: inline-flex; align-items: center; gap: 7px; border-radius: 999px; padding: 7px 10px; background: var(--pub-soft, var(--accent-bg)); color: var(--pub-color, var(--accent)); font-size: 0.68rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
-    .publication-card h3 { font-size: 1.04rem; line-height: 1.35; margin-bottom: 10px; position: relative; z-index: 1; }
-    .publication-card p { color: var(--muted); font-size: 0.82rem; margin-bottom: 16px; position: relative; z-index: 1; }
-    .pub-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; position: relative; z-index: 1; }
-    .pub-meta span { background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 6px 9px; color: #475569; font-size: 0.69rem; font-weight: 700; }
-    .pub-links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 9px; position: relative; z-index: 1; }
-    .pub-links a { display: inline-flex; align-items: center; gap: 7px; background: var(--pub-color, var(--accent)); color: #fff; padding: 9px 12px; border-radius: 11px; font-size: 0.76rem; font-weight: 850; transition: transform 0.2s, filter 0.2s; }
-    .pub-links a.secondary { background: #0f172a; }
-    .pub-links a:hover { transform: translateY(-2px); filter: brightness(0.95); }
-    .pub-green { --pub-color: #16a34a; --pub-soft: rgba(34,197,94,0.12); }
-    .pub-blue { --pub-color: #2563eb; --pub-soft: rgba(37,99,235,0.12); }
-    .pub-purple { --pub-color: #7c3aed; --pub-soft: rgba(124,58,237,0.12); }
-    .pub-orange { --pub-color: #f97316; --pub-soft: rgba(249,115,22,0.13); }
-    .pub-cyan { --pub-color: #0891b2; --pub-soft: rgba(8,145,178,0.12); }
-    .pub-rose { --pub-color: #e11d48; --pub-soft: rgba(225,29,72,0.11); }
-    .pub-slate { --pub-color: #334155; --pub-soft: rgba(51,65,85,0.11); }
-    .topic-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 0 0 40px; }
-    .topic-card { background: rgba(255,255,255,0.84); border: 1px solid rgba(37,99,235,0.14); border-radius: 22px; padding: 18px; display: flex; align-items: center; gap: 13px; box-shadow: 0 12px 34px rgba(15,23,42,0.06); transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
-    .topic-card:hover { transform: translateY(-6px); border-color: var(--topic, var(--accent)); box-shadow: 0 18px 44px rgba(15,23,42,0.10); }
-    .topic-icon { width: 44px; height: 44px; flex: 0 0 44px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: var(--topic, var(--accent)); background: var(--topic-soft, var(--accent-bg)); font-size: 1.15rem; }
-    .topic-card strong { display: block; font-size: 0.9rem; line-height: 1.25; }
-    .topic-card span { color: var(--muted); font-size: 0.72rem; font-weight: 600; }
-    .research-hero-card .orb { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.13); filter: blur(2px); animation: floatOrb 6s ease-in-out infinite; }
-    .research-hero-card .orb.one { width: 70px; height: 70px; right: 78px; bottom: 46px; }
-    .research-hero-card .orb.two { width: 38px; height: 38px; right: 40px; bottom: 140px; animation-delay: 1.4s; }
-    .research-hero-card .orb.three { width: 24px; height: 24px; left: 42%; top: 34px; animation-delay: 2.2s; }
-    .pub-topic-row { display: flex; flex-wrap: wrap; gap: 7px; margin: -4px 0 14px; position: relative; z-index: 1; }
-    .pub-topic-row span { background: var(--pub-soft, var(--accent-bg)); color: var(--pub-color, var(--accent)); border: 1px solid var(--pub-soft, var(--accent-bg)); border-radius: 999px; padding: 6px 9px; font-size: 0.66rem; font-weight: 900; }
-    .pub-progress { height: 7px; background: #eef2ff; border-radius: 999px; overflow: hidden; margin: 2px 0 14px; position: relative; z-index: 1; }
-    .pub-progress span { display: block; height: 100%; width: var(--progress, 72%); background: linear-gradient(90deg, var(--pub-color, var(--accent)), rgba(15,23,42,0.88)); border-radius: inherit; }
-    .publication-card.featured { grid-column: span 2; min-height: 300px; background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(239,246,255,0.96)); }
-    .platform-ribbon { position: absolute; right: -42px; top: 21px; transform: rotate(38deg); background: var(--pub-color, var(--accent)); color: #fff; font-size: 0.62rem; font-weight: 900; padding: 7px 48px; letter-spacing: 0.06em; text-transform: uppercase; z-index: 2; }
-    @keyframes floatOrb { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-12px) scale(1.04); } }
-    @media (max-width: 900px) { .research-hero-panel { grid-template-columns: 1fr; } .publication-card.featured { grid-column: span 1; } }
+
+    .research-lead {
+      max-width: 780px;
+      margin: -34px auto 42px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .research-profile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin-bottom: 42px;
+    }
+
+    .research-profile-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .research-profile-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 14px 35px rgba(37,99,235,0.09);
+    }
+
+    .profile-logo {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-logo img {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+    }
+
+    .profile-logo.scholar {
+      background: #e8f0fe;
+    }
+
+    .profile-logo.academia {
+      background: #eef2ff;
+      color: #111827;
+      font-family: Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 900;
+    }
+
+    .profile-logo.orcid {
+      background: #f0fdf4;
+    }
+
+    .profile-info strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .profile-info span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      line-height: 1.45;
+    }
+
+    .pub-overview {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      margin-bottom: 44px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      align-items: center;
+      box-shadow: 0 12px 34px rgba(15,23,42,0.04);
+    }
+
+    .pub-overview h3 {
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .pub-overview p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .pub-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .pub-stat {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .pub-stat:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .pub-stat strong {
+      display: block;
+      color: var(--accent);
+      font-size: 1.45rem;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .pub-stat span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .pub-group {
+      margin-bottom: 46px;
+    }
+
+    .pub-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .pub-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .pub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+      gap: 16px;
+    }
+
+    .pub-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      --card-color: var(--accent);
+      --card-soft: var(--accent-bg);
+    }
+
+    .pub-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 22px;
+      right: 22px;
+      height: 4px;
+      border-radius: 0 0 10px 10px;
+      background: var(--card-color);
+    }
+
+    .pub-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--card-color);
+      box-shadow: 0 18px 45px rgba(15,23,42,0.09);
+    }
+
+    .pub-card.featured {
+      grid-column: span 2;
+    }
+
+    .pub-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .pub-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: var(--card-soft);
+      color: var(--card-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex: 0 0 46px;
+    }
+
+    .pub-badge {
+      background: var(--card-soft);
+      color: var(--card-color);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 0.66rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .pub-card h3 {
+      font-size: 1.04rem;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .pub-card p {
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-bottom: 14px;
+    }
+
+    .paper-description {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 13px;
+      margin-bottom: 15px;
+    }
+
+    .paper-description strong {
+      display: block;
+      font-size: 0.72rem;
+      margin-bottom: 5px;
+      color: var(--text);
+    }
+
+    .paper-description span {
+      display: block;
+      color: #4b5563;
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .pub-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+
+    .pub-tags span {
+      background: var(--card-soft);
+      color: var(--card-color);
+      border-radius: 999px;
+      padding: 6px 9px;
+      font-size: 0.65rem;
+      font-weight: 800;
+    }
+
+    .pub-links {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pub-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--card-color);
+      color: #fff;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      transition: transform 0.2s, filter 0.2s;
+    }
+
+    .pub-links a.secondary {
+      background: #111827;
+    }
+
+    .pub-links a:hover {
+      transform: translateY(-2px);
+      filter: brightness(0.96);
+    }
+
+    .pub-blue { --card-color: #2563eb; --card-soft: #eff6ff; }
+    .pub-green { --card-color: #16a34a; --card-soft: #ecfdf5; }
+    .pub-orange { --card-color: #f97316; --card-soft: #fff7ed; }
+    .pub-purple { --card-color: #7c3aed; --card-soft: #f5f3ff; }
+    .pub-cyan { --card-color: #0891b2; --card-soft: #ecfeff; }
+    .pub-rose { --card-color: #e11d48; --card-soft: #fff1f2; }
+
+    @media (max-width: 900px) {
+      .pub-overview { grid-template-columns: 1fr; }
+      .pub-card.featured { grid-column: span 1; }
+    }
+
     @media (max-width: 520px) {
-      .research-dashboard { grid-template-columns: repeat(2, 1fr); }
-      .research-hero-card, .research-metrics-card { border-radius: 22px; padding: 22px; }
-      .publication-grid { grid-template-columns: 1fr; }
-      .publication-card { min-height: auto; }
-      .pub-top { flex-direction: column; }
+      .pub-overview,
+      .pub-card,
+      .research-profile-card {
+        border-radius: 16px;
+      }
+
+      .pub-overview {
+        padding: 20px;
+      }
+
+      .pub-stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pub-card-top {
+        flex-direction: column;
+      }
     }
+
 
     #contact { background: var(--white); }
     .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
@@ -572,211 +840,355 @@
 
 
 
+
   <section id="research" class="section">
     <div class="inner">
       <div class="sec-header reveal">
         <small>Explore my</small>
-        <h2>Research Publications Hub</h2>
+        <h2>Research Publications</h2>
       </div>
-      <p class="research-lead reveal">A professional academic portfolio presenting journal-style contributions, preprints, repository records, DOI-ready outputs, and researcher identity links for Anushrut Ghimire.</p>
 
-      <div class="research-hero-panel">
-        <div class="research-hero-card reveal">
-          <span class="research-kicker"><i class="fas fa-microscope"></i> Independent Research Portfolio</span>
-          <h3>Research Topics, Publications, and Preservation Records</h3>
-          <p>This section is designed like a compact scholarly dashboard with topic-based cards, featured papers, repository preservation records, and verified profile links for Google Scholar, ORCID, and Academia.edu.</p>
-          <span class="orb one"></span><span class="orb two"></span><span class="orb three"></span>
-          <div class="research-actions">
-            <a class="research-action primary" href="https://scholar.google.com/citations?user=J0fibe8AAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-            <a class="research-action ghost" href="https://orcid.org/0009-0001-9583-4176" target="_blank" rel="noopener noreferrer"><i class="fas fa-id-badge"></i> ORCID</a>
-            <a class="research-action ghost" href="https://independent.academia.edu/GhimireAnushrut" target="_blank" rel="noopener noreferrer"><i class="fas fa-university"></i> Academia.edu</a>
+      <p class="research-lead reveal">
+        A clean academic section for my papers, preprints, DOI records, preservation archives,
+        and verified researcher profiles.
+      </p>
+
+      <div class="research-profile-grid reveal">
+        <a class="research-profile-card" href="https://scholar.google.com/citations?user=J0fibe8AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+          <div class="profile-logo scholar">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar Logo">
           </div>
+          <div class="profile-info">
+            <strong>Google Scholar</strong>
+            <span>Research profile and citation visibility</span>
+          </div>
+        </a>
+
+        <a class="research-profile-card" href="https://independent.academia.edu/GhimireAnushrut" target="_blank" rel="noopener noreferrer">
+          <div class="profile-logo academia">A</div>
+          <div class="profile-info">
+            <strong>Academia.edu</strong>
+            <span>Academic sharing and research profile</span>
+          </div>
+        </a>
+
+        <a class="research-profile-card" href="https://orcid.org/0009-0001-9583-4176" target="_blank" rel="noopener noreferrer">
+          <div class="profile-logo orcid">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID Logo">
+          </div>
+          <div class="profile-info">
+            <strong>ORCID</strong>
+            <span>0009-0001-9583-4176</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="pub-overview reveal">
+        <div>
+          <h3>Research Output Overview</h3>
+          <p>
+            My work focuses on AI cybersecurity, explainable deep learning, theoretical energy systems,
+            open science records, and long-term digital preservation of independent research.
+          </p>
         </div>
 
-        <div class="research-metrics-card reveal">
-          <div class="research-meter-title">
-            <strong>Publication Overview</strong>
-            <span class="sync-dot">Profile linked</span>
-          </div>
-          <div class="research-dashboard">
-            <div class="research-stat"><h3>9+</h3><p>Public Records</p></div>
-            <div class="research-stat"><h3>2</h3><p>Main Research Areas</p></div>
-            <div class="research-stat"><h3>4</h3><p>Repository Platforms</p></div>
-            <div class="research-stat"><h3>DOI</h3><p>Zenodo Ready</p></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="research-profiles reveal">
-        <a class="research-profile" href="https://scholar.google.com/citations?user=J0fibe8AAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-        <a class="research-profile" href="https://independent.academia.edu/GhimireAnushrut" target="_blank" rel="noopener noreferrer"><i class="fas fa-university"></i> Academia.edu</a>
-        <a class="research-profile" href="https://orcid.org/0009-0001-9583-4176" target="_blank" rel="noopener noreferrer"><i class="fas fa-id-badge"></i> ORCID: 0009-0001-9583-4176</a>
-      </div>
-
-      <div class="topic-strip reveal">
-        <div class="topic-card" style="--topic:#2563eb;--topic-soft:rgba(37,99,235,0.12)"><div class="topic-icon"><i class="fa-solid fa-shield-halved"></i></i></div><div><strong>AI Cybersecurity</strong><span>Zero-day detection · XAI</span></div></div>
-        <div class="topic-card" style="--topic:#16a34a;--topic-soft:rgba(34,197,94,0.12)"><div class="topic-icon"><i class="fas fa-recycle"></i></div><div><strong>Energy Recirculation</strong><span>Efficiency · Thermodynamics</span></div></div>
-        <div class="topic-card" style="--topic:#f97316;--topic-soft:rgba(249,115,22,0.13)"><div class="topic-icon"><i class="fas fa-magnet"></i></div><div><strong>Magnetic Systems</strong><span>Vehicle theory · Propulsion</span></div></div>
-        <div class="topic-card" style="--topic:#7c3aed;--topic-soft:rgba(124,58,237,0.12)"><div class="topic-icon"><i class="fas fa-database"></i></div><div><strong>Open Science Records</strong><span>Zenodo · Figshare · Archive</span></div></div>
-      </div>
-
-      <div class="research-group reveal">
-        <div class="research-title"> Journal Publications & Journal-Style Contributions</div>
-        <div class="publication-grid">
-          <article class="publication-card pub-green featured" style="--progress:88%">
-            <div class="platform-ribbon">Featured</div>
-            <div class="pub-top">
-              <div class="pub-icon"><i class="fas fa-leaf"></i></div>
-              <span class="pub-badge"><i class="fas fa-check-circle"></i> Journal Contribution</span>
-            </div>
-            <h3>Anushrut’s Theory of Total Energy Recirculation</h3>
-            <p>A theoretical energy-systems framework presenting recirculation efficiency, transformed energy pathways, and system-level interpretation of unrecovered energy flow.</p>
-            <div class="pub-topic-row"><span>Energy Flow</span><span>System Efficiency</span><span>Theoretical Physics</span></div>
-            <div class="pub-progress"><span></span></div>
-            <div class="pub-meta">
-              <span>Energy Systems</span><span>Theory Paper</span><span>Figshare</span>
-            </div>
-            <div class="pub-links">
-              <a href="https://figshare.com/articles/journal_contribution/Anushrut_s_Theory_of_Total_Energy_Recirculation/32135992" target="_blank" rel="noopener noreferrer">View Figshare <i class="fas fa-arrow-up-right-from-square"></i></a>
-              <a class="secondary" href="https://zenodo.org/records/19923124" target="_blank" rel="noopener noreferrer">Zenodo DOI <i class="fas fa-fingerprint"></i></a>
-            </div>
-          </article>
+        <div class="pub-stat-grid">
+          <div class="pub-stat"><strong>9+</strong><span>Public Records</span></div>
+          <div class="pub-stat"><strong>3</strong><span>Research Topics</span></div>
+          <div class="pub-stat"><strong>4</strong><span>Platforms</span></div>
+          <div class="pub-stat"><strong>DOI</strong><span>Repository Ready</span></div>
         </div>
       </div>
 
-      <div class="research-group reveal">
-        <div class="research-title"> Featured Preprints & Working Papers</div>
-        <div class="publication-grid">
-          <article class="publication-card pub-blue featured" style="--progress:92%">
-            <div class="platform-ribbon">Featured</div>
-            <div class="pub-top">
-              <div class="pub-icon"><i class="fas fa-shield-halved"></i></div>
-              <span class="pub-badge"><i class="fas fa-brain"></i> AI Security</span>
-            </div>
-            <h3>Federated Explainable Deep Learning Framework for Zero-Day Attack Detection</h3>
-            <p>A cybersecurity-focused research work combining federated learning, explainable AI, encrypted traffic analysis, and zero-day attack detection.</p>
-            <div class="pub-topic-row"><span>Federated Learning</span><span>Encrypted Traffic</span><span>Zero-Day Attacks</span></div>
-            <div class="pub-progress"><span></span></div>
-            <div class="pub-meta">
-              <span>Federated Learning</span><span>XAI</span><span>Cybersecurity</span>
-            </div>
-            <div class="pub-links">
-              <a href="https://figshare.com/articles/preprint/Federated_Explainable_Deep_Learning_Framework/32136790" target="_blank" rel="noopener noreferrer">View Figshare <i class="fas fa-arrow-up-right-from-square"></i></a>
-              <a class="secondary" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371118" target="_blank" rel="noopener noreferrer">SSRN <i class="fas fa-file-lines"></i></a>
-            </div>
-          </article>
+      <div class="pub-group reveal">
+        <div class="pub-title">Journal Publications & Journal-Style Contributions</div>
 
-          <article class="publication-card pub-orange">
-            <div class="pub-top">
-              <div class="pub-icon"><i class="fas fa-magnet"></i></div>
-              <span class="pub-badge"><i class="fas fa-car-side"></i> Engineering Theory</span>
-            </div>
-            <h3>Anushrut’s Theory: Magnetically-Assisted Vehicle</h3>
-            <p>A concept paper exploring a wheel-less magnetically-assisted vehicle idea aimed at reducing friction and electrical energy consumption.</p>
-            <div class="pub-topic-row"><span>Magnetism</span><span>Friction Reduction</span><span>Vehicle Concept</span></div>
-            <div class="pub-progress"><span></span></div>
-            <div class="pub-meta">
-              <span>Magnetic Systems</span><span>Vehicle Concept</span><span>SSRN</span>
-            </div>
-            <div class="pub-links">
-              <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6667978" target="_blank" rel="noopener noreferrer">View SSRN <i class="fas fa-arrow-up-right-from-square"></i></a>
-            </div>
-          </article>
-
-          <article class="publication-card pub-purple">
-            <div class="pub-top">
+        <div class="pub-grid">
+          <article class="pub-card pub-green featured">
+            <div class="pub-card-top">
               <div class="pub-icon"><i class="fas fa-recycle"></i></div>
-              <span class="pub-badge"><i class="fas fa-bolt"></i> Energy Theory</span>
+              <span class="pub-badge">Journal Contribution</span>
             </div>
-            <h3>Total Energy Recirculation Working Paper</h3>
-            <p>Working paper version of the energy recirculation theory, prepared for public discovery, early reading, and independent research visibility.</p>
-            <div class="pub-topic-row"><span>Preprint</span><span>Energy Theory</span><span>Independent Research</span></div>
-            <div class="pub-progress"><span></span></div>
-            <div class="pub-meta">
-              <span>Thermodynamics</span><span>Efficiency</span><span>SSRN</span>
+
+            <h3>Anushrut’s Theory of Total Energy Recirculation</h3>
+
+            <p>
+              A theoretical energy-systems framework that views apparent energy loss as unrecovered
+              transformed energy within a system.
+            </p>
+
+            <div class="paper-description">
+              <strong>Paper Description</strong>
+              <span>
+                This paper introduces recirculation efficiency as a complementary way to evaluate energy
+                systems. Instead of only measuring useful output and loss, it studies how transformed or
+                wasted energy may be recovered, redirected, or reused inside a system.
+              </span>
             </div>
+
+            <div class="pub-tags">
+              <span>Energy Systems</span>
+              <span>Thermodynamics</span>
+              <span>Efficiency</span>
+              <span>Theory</span>
+            </div>
+
             <div class="pub-links">
-              <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6683179" target="_blank" rel="noopener noreferrer">View SSRN <i class="fas fa-arrow-up-right-from-square"></i></a>
-              <a class="secondary" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371118" target="_blank" rel="noopener noreferrer">Related Record <i class="fas fa-link"></i></a>
+              <a href="https://figshare.com/articles/journal_contribution/Anushrut_s_Theory_of_Total_Energy_Recirculation/32135992" target="_blank" rel="noopener noreferrer">
+                Figshare <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+              <a class="secondary" href="https://zenodo.org/records/19923124" target="_blank" rel="noopener noreferrer">
+                Zenodo <i class="fas fa-fingerprint"></i>
+              </a>
             </div>
           </article>
         </div>
       </div>
 
-      <div class="research-group reveal">
-        <div class="research-title">Open Repositories & Preservation Records</div>
-        <div class="publication-grid">
-          <article class="publication-card pub-cyan">
-            <div class="pub-top">
-              <div class="pub-icon"><i class="fas fa-fingerprint"></i></div>
-              <span class="pub-badge"><i class="fas fa-database"></i> Zenodo DOI</span>
-            </div>
-            <h3>Zenodo Record 19923124</h3>
-            <p>Open repository record for long-term scholarly access, DOI-style citation visibility, and research preservation.</p>
-            <div class="pub-topic-row"><span>DOI Record</span><span>Open Repository</span><span>Long-term Access</span></div>
-            <div class="pub-progress"><span></span></div>
-            <div class="pub-meta">
-              <span>Zenodo</span><span>Repository</span><span>Citable Record</span>
-            </div>
-            <div class="pub-links">
-              <a href="https://zenodo.org/records/19923124" target="_blank" rel="noopener noreferrer">Open Zenodo <i class="fas fa-arrow-up-right-from-square"></i></a>
-            </div>
-          </article>
+      <div class="pub-group reveal">
+        <div class="pub-title">Preprints & Working Papers</div>
 
-          <article class="publication-card pub-cyan">
-            <div class="pub-top">
-              <div class="pub-icon"><i class="fas fa-cloud-arrow-up"></i></div>
-              <span class="pub-badge"><i class="fas fa-database"></i> Zenodo Record</span>
-            </div>
-            <h3>Zenodo Record 19923551</h3>
-            <p>Additional open repository entry supporting research discoverability, academic referencing, and preservation.</p>
-            <div class="pub-topic-row"><span>Open Science</span><span>Repository Entry</span><span>Citation Ready</span></div>
-            <div class="pub-progress"><span></span></div>
-            <div class="pub-meta">
-              <span>Zenodo</span><span>Open Science</span><span>Preservation</span>
-            </div>
-            <div class="pub-links">
-              <a href="https://zenodo.org/records/19923551" target="_blank" rel="noopener noreferrer">Open Zenodo <i class="fas fa-arrow-up-right-from-square"></i></a>
-            </div>
-          </article>
-
-          <article class="publication-card pub-rose">
-            <div class="pub-top">
-              <div class="pub-icon"><i class="fas fa-box-archive"></i></div>
-              <span class="pub-badge"><i class="fas fa-shield"></i> Internet Archive</span>
-            </div>
-            <h3>Anushrut’s Theory of Total Energy Recirculation</h3>
-            <p>Preservation copy stored through Internet Archive for public access, long-term availability, and independent backup.</p>
-            <div class="pub-topic-row"><span>Preservation</span><span>Public Archive</span><span>Energy Theory</span></div>
-            <div class="pub-progress"><span></span></div>
-            <div class="pub-meta">
-              <span>Archive.org</span><span>Preservation</span><span>Energy Theory</span>
-            </div>
-            <div class="pub-links">
-              <a href="https://archive.org/details/anushruts-theory-of-total-energy-recirculation" target="_blank" rel="noopener noreferrer">Open Archive <i class="fas fa-box-archive"></i></a>
-            </div>
-          </article>
-
-          <article class="publication-card pub-blue">
-            <div class="pub-top">
+        <div class="pub-grid">
+          <article class="pub-card pub-blue featured">
+            <div class="pub-card-top">
               <div class="pub-icon"><i class="fas fa-shield-halved"></i></div>
-              <span class="pub-badge"><i class="fas fa-box-archive"></i> Internet Archive</span>
+              <span class="pub-badge">AI Security</span>
             </div>
-            <h3>FEDLF Research Archive</h3>
-            <p>Archived preservation record for the Federated Explainable Deep Learning Framework research work.</p>
-            <div class="pub-topic-row"><span>Preservation</span><span>Cybersecurity</span><span>AI Framework</span></div>
-            <div class="pub-progress"><span></span></div>
-            <div class="pub-meta">
-              <span>Archive.org</span><span>Preservation</span><span>AI Security</span>
+
+            <h3>Federated Explainable Deep Learning Framework for Zero-Day Attack Detection</h3>
+
+            <p>
+              A cybersecurity research work combining federated learning, explainable AI,
+              encrypted traffic analysis, and zero-day attack detection.
+            </p>
+
+            <div class="paper-description">
+              <strong>Paper Description</strong>
+              <span>
+                This paper presents a privacy-preserving deep learning framework for detecting unknown
+                cyberattacks in encrypted network traffic. It uses federated learning for distributed model
+                training and explainable AI to make detection decisions more transparent.
+              </span>
             </div>
+
+            <div class="pub-tags">
+              <span>Federated Learning</span>
+              <span>XAI</span>
+              <span>Zero-Day Detection</span>
+              <span>Encrypted Traffic</span>
+            </div>
+
             <div class="pub-links">
-              <a href="https://archive.org/details/FEDLF" target="_blank" rel="noopener noreferrer">Open Archive <i class="fas fa-box-archive"></i></a>
+              <a href="https://figshare.com/articles/preprint/Federated_Explainable_Deep_Learning_Framework/32136790" target="_blank" rel="noopener noreferrer">
+                Figshare <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+              <a class="secondary" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371118" target="_blank" rel="noopener noreferrer">
+                SSRN <i class="fas fa-file-lines"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-card pub-orange">
+            <div class="pub-card-top">
+              <div class="pub-icon"><i class="fas fa-magnet"></i></div>
+              <span class="pub-badge">Engineering Theory</span>
+            </div>
+
+            <h3>Anushrut’s Theory: Magnetically-Assisted Vehicle</h3>
+
+            <p>
+              A concept paper exploring a wheel-less magnetically assisted vehicle idea for reducing
+              friction and electrical energy consumption.
+            </p>
+
+            <div class="paper-description">
+              <strong>Paper Description</strong>
+              <span>
+                This work discusses a theoretical transportation concept where magnetic assistance may
+                reduce surface contact friction and support more efficient motion. It is an early-stage idea
+                for future modelling, simulation, and feasibility testing.
+              </span>
+            </div>
+
+            <div class="pub-tags">
+              <span>Magnetism</span>
+              <span>Vehicle Concept</span>
+              <span>Friction Reduction</span>
+            </div>
+
+            <div class="pub-links">
+              <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6667978" target="_blank" rel="noopener noreferrer">
+                SSRN <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-card pub-purple">
+            <div class="pub-card-top">
+              <div class="pub-icon"><i class="fas fa-bolt"></i></div>
+              <span class="pub-badge">Energy Theory</span>
+            </div>
+
+            <h3>Total Energy Recirculation Working Paper</h3>
+
+            <p>
+              Working-paper version of the total energy recirculation theory prepared for public discovery
+              and academic sharing.
+            </p>
+
+            <div class="paper-description">
+              <strong>Paper Description</strong>
+              <span>
+                This version presents the central concept of energy recirculation in a public preprint format,
+                making the theory accessible for early reading, feedback, and future academic refinement.
+              </span>
+            </div>
+
+            <div class="pub-tags">
+              <span>Preprint</span>
+              <span>Energy Theory</span>
+              <span>Independent Research</span>
+            </div>
+
+            <div class="pub-links">
+              <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6683179" target="_blank" rel="noopener noreferrer">
+                SSRN <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="pub-group reveal">
+        <div class="pub-title">Open Repositories & DOI Records</div>
+
+        <div class="pub-grid">
+          <article class="pub-card pub-cyan">
+            <div class="pub-card-top">
+              <div class="pub-icon"><i class="fas fa-fingerprint"></i></div>
+              <span class="pub-badge">Zenodo DOI</span>
+            </div>
+
+            <h3>Zenodo Record 19923124</h3>
+
+            <div class="paper-description">
+              <strong>Record Description</strong>
+              <span>
+                Open repository record supporting long-term access, DOI-style citation visibility,
+                and preservation of the Total Energy Recirculation research work.
+              </span>
+            </div>
+
+            <div class="pub-tags">
+              <span>Zenodo</span>
+              <span>DOI Record</span>
+              <span>Open Science</span>
+            </div>
+
+            <div class="pub-links">
+              <a href="https://zenodo.org/records/19923124" target="_blank" rel="noopener noreferrer">
+                Open Zenodo <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-card pub-cyan">
+            <div class="pub-card-top">
+              <div class="pub-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+              <span class="pub-badge">Zenodo Record</span>
+            </div>
+
+            <h3>Zenodo Record 19923551</h3>
+
+            <div class="paper-description">
+              <strong>Record Description</strong>
+              <span>
+                Additional open repository entry created to improve research discoverability,
+                academic referencing, and public preservation.
+              </span>
+            </div>
+
+            <div class="pub-tags">
+              <span>Repository</span>
+              <span>Preservation</span>
+              <span>Citation Ready</span>
+            </div>
+
+            <div class="pub-links">
+              <a href="https://zenodo.org/records/19923551" target="_blank" rel="noopener noreferrer">
+                Open Zenodo <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="pub-group reveal">
+        <div class="pub-title">Preservation Archives</div>
+
+        <div class="pub-grid">
+          <article class="pub-card pub-rose">
+            <div class="pub-card-top">
+              <div class="pub-icon"><i class="fas fa-box-archive"></i></div>
+              <span class="pub-badge">Internet Archive</span>
+            </div>
+
+            <h3>Anushrut’s Theory of Total Energy Recirculation</h3>
+
+            <div class="paper-description">
+              <strong>Archive Description</strong>
+              <span>
+                Internet Archive preservation copy for long-term public access, backup, and availability
+                outside a single publication platform.
+              </span>
+            </div>
+
+            <div class="pub-tags">
+              <span>Archive.org</span>
+              <span>Energy Theory</span>
+              <span>Preservation</span>
+            </div>
+
+            <div class="pub-links">
+              <a href="https://archive.org/details/anushruts-theory-of-total-energy-recirculation" target="_blank" rel="noopener noreferrer">
+                Open Archive <i class="fas fa-box-archive"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-card pub-blue">
+            <div class="pub-card-top">
+              <div class="pub-icon"><i class="fas fa-shield-halved"></i></div>
+              <span class="pub-badge">Internet Archive</span>
+            </div>
+
+            <h3>FEDLF Research Archive</h3>
+
+            <div class="paper-description">
+              <strong>Archive Description</strong>
+              <span>
+                Archived preservation record for the Federated Explainable Deep Learning Framework
+                research paper, supporting long-term access and academic backup.
+              </span>
+            </div>
+
+            <div class="pub-tags">
+              <span>Archive.org</span>
+              <span>AI Security</span>
+              <span>Backup Record</span>
+            </div>
+
+            <div class="pub-links">
+              <a href="https://archive.org/details/FEDLF" target="_blank" rel="noopener noreferrer">
+                Open Archive <i class="fas fa-box-archive"></i>
+              </a>
             </div>
           </article>
         </div>
       </div>
     </div>
   </section>
+
 
   <section id="music" class="section">
     <div class="music-inner">
