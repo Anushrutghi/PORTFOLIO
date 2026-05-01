@@ -839,12 +839,13 @@
   </section>
 
 <style>
+<style>
 /* ================= PREMIUM PUBLICATION SECTION ONLY ================= */
 
 #research {
   background:
-    radial-gradient(circle at top left, rgba(37,99,235,0.10), transparent 30%),
-    radial-gradient(circle at top right, rgba(22,163,74,0.10), transparent 28%),
+    radial-gradient(circle at 8% 8%, rgba(37,99,235,0.10), transparent 30%),
+    radial-gradient(circle at 92% 10%, rgba(22,163,74,0.10), transparent 28%),
     #f8f8f5;
   position: relative;
   overflow: hidden;
@@ -865,37 +866,90 @@
   font-size: 0.95rem;
 }
 
-.research-logo-strip {
+.profile-section-title {
+  font-size: 0.95rem;
+  font-weight: 900;
+  margin: 30px 0 16px;
+  color: #111827;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 42px;
+  align-items: center;
+  gap: 12px;
 }
 
-.research-logo-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
+.profile-section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.research-logo-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.research-logo-card {
   background: #fff;
   border: 1px solid var(--border);
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 800;
-  color: #111827;
+  border-radius: 20px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
   box-shadow: 0 8px 24px rgba(15,23,42,0.05);
+  transition: 0.25s ease;
 }
 
-.research-logo-pill img {
-  width: 22px;
-  height: 22px;
+.research-logo-card:hover {
+  transform: translateY(-4px);
+  border-color: #2563eb;
+  box-shadow: 0 16px 38px rgba(15,23,42,0.10);
+}
+
+.logo-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-box img {
+  width: 35px;
+  height: 35px;
   object-fit: contain;
+}
+
+.logo-box.academia-logo {
+  background: #111827;
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 900;
+}
+
+.logo-info strong {
+  display: block;
+  font-size: 0.88rem;
+  color: #111827;
+}
+
+.logo-info span {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 2px;
 }
 
 .pub-grid-premium {
   display: grid;
   gap: 28px;
+  margin-top: 36px;
 }
 
 .paper-box {
@@ -1060,42 +1114,90 @@
 
     <p class="research-lead reveal">
       A polished collection of my independent research works in AI cybersecurity,
-      magnetic transportation concepts, and theoretical energy systems — shared through
-      open repositories, preprint platforms, DOI records, and preservation archives.
+      magnetic transportation concepts, and theoretical energy systems.
     </p>
 
+    <div class="profile-section-title reveal">Researcher Profiles</div>
+
     <div class="research-logo-strip reveal">
-      <a class="research-logo-pill" href="https://scholar.google.com/citations?user=J0fibe8AAAAJ&hl=en" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg"> Google Scholar
+      <a class="research-logo-card" href="https://scholar.google.com/citations?user=J0fibe8AAAAJ&hl=en" target="_blank">
+        <div class="logo-box">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar">
+        </div>
+        <div class="logo-info">
+          <strong>Google Scholar</strong>
+          <span>Citation and research profile</span>
+        </div>
       </a>
 
-      <a class="research-logo-pill" href="https://orcid.org/0009-0001-9583-4176" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg"> ORCID
+      <a class="research-logo-card" href="https://orcid.org/0009-0001-9583-4176" target="_blank">
+        <div class="logo-box">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID">
+        </div>
+        <div class="logo-info">
+          <strong>ORCID</strong>
+          <span>Research identity record</span>
+        </div>
       </a>
 
-      <a class="research-logo-pill" href="https://independent.academia.edu/GhimireAnushrut" target="_blank">
-        <span style="font-family:Georgia;font-size:1.2rem;font-weight:900;">A</span> Academia.edu
+      <a class="research-logo-card" href="https://independent.academia.edu/GhimireAnushrut" target="_blank">
+        <div class="logo-box academia-logo">A</div>
+        <div class="logo-info">
+          <strong>Academia.edu</strong>
+          <span>Academic sharing profile</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="profile-section-title reveal">Publication Platforms & Archives</div>
+
+    <div class="research-logo-strip reveal">
+      <a class="research-logo-card" href="https://figshare.com" target="_blank">
+        <div class="logo-box">
+          <img src="https://figshare.com/favicon.ico" alt="Figshare">
+        </div>
+        <div class="logo-info">
+          <strong>Figshare</strong>
+          <span>Preprint and journal contribution records</span>
+        </div>
       </a>
 
-      <a class="research-logo-pill" href="https://zenodo.org" target="_blank">
-        <img src="https://about.zenodo.org/static/img/logos/zenodo-gradient-square.svg"> Zenodo
+      <a class="research-logo-card" href="https://zenodo.org" target="_blank">
+        <div class="logo-box">
+          <img src="https://about.zenodo.org/static/img/logos/zenodo-gradient-square.svg" alt="Zenodo">
+        </div>
+        <div class="logo-info">
+          <strong>Zenodo</strong>
+          <span>DOI and repository preservation</span>
+        </div>
       </a>
 
-      <a class="research-logo-pill" href="https://figshare.com" target="_blank">
-        <img src="https://figshare.com/favicon.ico"> Figshare
+      <a class="research-logo-card" href="https://archive.org" target="_blank">
+        <div class="logo-box">
+          <img src="https://archive.org/favicon.ico" alt="Internet Archive">
+        </div>
+        <div class="logo-info">
+          <strong>Internet Archive</strong>
+          <span>Long-term digital preservation</span>
+        </div>
       </a>
 
-      <a class="research-logo-pill" href="https://archive.org" target="_blank">
-        <img src="https://archive.org/favicon.ico"> Internet Archive
+      <a class="research-logo-card" href="https://papers.ssrn.com" target="_blank">
+        <div class="logo-box">
+          <span style="font-weight:900;color:#2563eb;font-size:1rem;">SSRN</span>
+        </div>
+        <div class="logo-info">
+          <strong>SSRN</strong>
+          <span>Working paper and preprint sharing</span>
+        </div>
       </a>
     </div>
 
     <div class="pub-grid-premium">
 
-      <!-- FEDL XAI -->
       <article class="paper-box paper-blue reveal">
         <div class="paper-top">
-          <div class="paper-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="paper-icon"><i class="fas fa-network-wired"></i></div>
           <span class="paper-badge">AI Security / FEDL-XAI</span>
         </div>
 
@@ -1112,8 +1214,7 @@
             FEDL-XAI combines Federated Learning and Explainable Artificial Intelligence to create a
             security model that can learn from distributed network data without exposing sensitive
             information. The framework focuses on zero-day attack detection, encrypted traffic analysis,
-            and transparent decision-making so that cybersecurity systems are not only accurate but also
-            interpretable.
+            and transparent decision-making.
           </p>
         </div>
 
@@ -1126,13 +1227,13 @@
 
         <div class="platform-links">
           <a class="figshare" href="https://figshare.com/articles/preprint/Federated_Explainable_Deep_Learning_Framework/32136790" target="_blank">
-            <img src="https://figshare.com/favicon.ico"> Figshare
+            <img src="https://figshare.com/favicon.ico" alt=""> Figshare
           </a>
           <a class="zenodo" href="https://zenodo.org/records/19923551" target="_blank">
-            <img src="https://about.zenodo.org/static/img/logos/zenodo-gradient-square.svg"> Zenodo
+            <img src="https://about.zenodo.org/static/img/logos/zenodo-gradient-square.svg" alt=""> Zenodo
           </a>
           <a class="archive" href="https://archive.org/details/FEDLF" target="_blank">
-            <img src="https://archive.org/favicon.ico"> Archive
+            <img src="https://archive.org/favicon.ico" alt=""> Archive
           </a>
           <a class="ssrn" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371118" target="_blank">
             SSRN
@@ -1140,7 +1241,6 @@
         </div>
       </article>
 
-      <!-- MAGNETIC VEHICLE -->
       <article class="paper-box paper-orange reveal">
         <div class="paper-top">
           <div class="paper-icon"><i class="fas fa-magnet"></i></div>
@@ -1159,8 +1259,7 @@
           <p>
             This concept proposes a magnetically assisted transportation idea where magnetic forces may
             support motion and reduce friction between the vehicle and the surface. It is an early-stage
-            theoretical model intended for future simulation, engineering refinement, and feasibility
-            analysis in low-friction mobility systems.
+            theoretical model intended for future simulation, refinement, and feasibility analysis.
           </p>
         </div>
 
@@ -1176,12 +1275,11 @@
             SSRN
           </a>
           <a class="zenodo" href="https://zenodo.org/records/19923551" target="_blank">
-            <img src="https://about.zenodo.org/static/img/logos/zenodo-gradient-square.svg"> Zenodo
+            <img src="https://about.zenodo.org/static/img/logos/zenodo-gradient-square.svg" alt=""> Zenodo
           </a>
         </div>
       </article>
 
-      <!-- ENERGY RECIRCULATION -->
       <article class="paper-box paper-green reveal">
         <div class="paper-top">
           <div class="paper-icon"><i class="fas fa-recycle"></i></div>
@@ -1198,10 +1296,9 @@
         <div class="paper-description-box">
           <strong>Paper Description</strong>
           <p>
-            This theory introduces the idea of recirculation efficiency as a complementary method for
-            evaluating energy systems. Instead of treating energy loss as simple waste, the theory studies
-            whether transformed energy can be recovered, redirected, reused, or reintegrated into the
-            system to improve overall energy performance.
+            This theory introduces recirculation efficiency as a complementary method for evaluating
+            energy systems. Instead of treating energy loss as waste, it studies whether transformed
+            energy can be recovered, redirected, reused, or reintegrated into the system.
           </p>
         </div>
 
@@ -1214,13 +1311,13 @@
 
         <div class="platform-links">
           <a class="figshare" href="https://figshare.com/articles/journal_contribution/Anushrut_s_Theory_of_Total_Energy_Recirculation/32135992" target="_blank">
-            <img src="https://figshare.com/favicon.ico"> Figshare
+            <img src="https://figshare.com/favicon.ico" alt=""> Figshare
           </a>
           <a class="zenodo" href="https://zenodo.org/records/19923124" target="_blank">
-            <img src="https://about.zenodo.org/static/img/logos/zenodo-gradient-square.svg"> Zenodo
+            <img src="https://about.zenodo.org/static/img/logos/zenodo-gradient-square.svg" alt=""> Zenodo
           </a>
           <a class="archive" href="https://archive.org/details/anushruts-theory-of-total-energy-recirculation" target="_blank">
-            <img src="https://archive.org/favicon.ico"> Archive
+            <img src="https://archive.org/favicon.ico" alt=""> Archive
           </a>
           <a class="ssrn" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6683179" target="_blank">
             SSRN
@@ -1228,6 +1325,9 @@
         </div>
       </article>
 
+    </div>
+  </div>
+</section>
     </div>
   </div>
 </section>
