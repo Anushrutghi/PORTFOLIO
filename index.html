@@ -838,358 +838,399 @@
     </div>
   </section>
 
+<style>
+/* ================= PREMIUM PUBLICATION SECTION ONLY ================= */
+
+#research {
+  background:
+    radial-gradient(circle at top left, rgba(37,99,235,0.10), transparent 30%),
+    radial-gradient(circle at top right, rgba(22,163,74,0.10), transparent 28%),
+    #f8f8f5;
+  position: relative;
+  overflow: hidden;
+}
+
+#research .inner {
+  max-width: 1180px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.research-lead {
+  max-width: 820px;
+  margin: -30px auto 38px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.research-logo-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 42px;
+}
+
+.research-logo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #111827;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.05);
+}
+
+.research-logo-pill img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.pub-grid-premium {
+  display: grid;
+  gap: 28px;
+}
+
+.paper-box {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: 0 18px 50px rgba(15,23,42,0.07);
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
+  --main: #2563eb;
+  --soft: #eff6ff;
+}
+
+.paper-box:hover {
+  transform: translateY(-6px);
+  border-color: var(--main);
+  box-shadow: 0 24px 65px rgba(15,23,42,0.12);
+}
+
+.paper-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.paper-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 22px;
+  background: var(--soft);
+  color: var(--main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.65rem;
+  flex-shrink: 0;
+}
+
+.paper-badge {
+  background: var(--soft);
+  color: var(--main);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.paper-box h3 {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.25;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.paper-summary {
+  color: #5b6170;
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+}
+
+.paper-description-box {
+  background: #f8f8f5;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 22px;
+  margin-bottom: 22px;
+}
+
+.paper-description-box strong {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.paper-description-box p {
+  color: #4b5563;
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.paper-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.paper-tags span {
+  background: var(--soft);
+  color: var(--main);
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.platform-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.platform-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #111827;
+  color: #fff;
+  padding: 12px 17px;
+  border-radius: 14px;
+  font-size: 0.82rem;
+  font-weight: 900;
+  transition: 0.25s ease;
+}
+
+.platform-links a:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.08);
+}
+
+.platform-links a.figshare { background: #16a34a; }
+.platform-links a.zenodo { background: #0f172a; }
+.platform-links a.ssrn { background: #2563eb; }
+.platform-links a.archive { background: #7c3aed; }
+
+.platform-links img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.paper-blue { --main:#2563eb; --soft:#eff6ff; }
+.paper-green { --main:#16a34a; --soft:#ecfdf5; }
+.paper-orange { --main:#f97316; --soft:#fff7ed; }
+
+@media (max-width: 700px) {
+  .paper-box { padding: 22px; border-radius: 22px; }
+  .paper-top { flex-direction: column; }
+  .paper-badge { align-self: flex-start; }
+  .platform-links a { width: 100%; justify-content: center; }
+}
+</style>
 
 
+<section id="research" class="section">
+  <div class="inner">
 
-  <section id="research" class="section">
-    <div class="inner">
-      <div class="sec-header reveal">
-        <small>Explore my</small>
-        <h2>Research Publications</h2>
-      </div>
+    <div class="sec-header reveal">
+      <small>Explore my</small>
+      <h2>Research Publications</h2>
+    </div>
 
-      <p class="research-lead reveal">
-        A clean academic section for my papers, preprints, DOI records, preservation archives,
-        and verified researcher profiles.
-      </p>
+    <p class="research-lead reveal">
+      A polished collection of my independent research works in AI cybersecurity,
+      magnetic transportation concepts, and theoretical energy systems — shared through
+      open repositories, preprint platforms, DOI records, and preservation archives.
+    </p>
 
-      <div class="research-profile-grid reveal">
-        <a class="research-profile-card" href="https://scholar.google.com/citations?user=J0fibe8AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
-          <div class="profile-logo scholar">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar Logo">
-          </div>
-          <div class="profile-info">
-            <strong>Google Scholar</strong>
-            <span>Research profile and citation visibility</span>
-          </div>
-        </a>
+    <div class="research-logo-strip reveal">
+      <a class="research-logo-pill" href="https://scholar.google.com/citations?user=J0fibe8AAAAJ&hl=en" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg"> Google Scholar
+      </a>
 
-        <a class="research-profile-card" href="https://independent.academia.edu/GhimireAnushrut" target="_blank" rel="noopener noreferrer">
-          <div class="profile-logo academia">A</div>
-          <div class="profile-info">
-            <strong>Academia.edu</strong>
-            <span>Academic sharing and research profile</span>
-          </div>
-        </a>
+      <a class="research-logo-pill" href="https://orcid.org/0009-0001-9583-4176" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg"> ORCID
+      </a>
 
-        <a class="research-profile-card" href="https://orcid.org/0009-0001-9583-4176" target="_blank" rel="noopener noreferrer">
-          <div class="profile-logo orcid">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID Logo">
-          </div>
-          <div class="profile-info">
-            <strong>ORCID</strong>
-            <span>0009-0001-9583-4176</span>
-          </div>
-        </a>
-      </div>
+      <a class="research-logo-pill" href="https://independent.academia.edu/GhimireAnushrut" target="_blank">
+        <span style="font-family:Georgia;font-size:1.2rem;font-weight:900;">A</span> Academia.edu
+      </a>
 
-      <div class="pub-overview reveal">
-        <div>
-          <h3>Research Output Overview</h3>
+      <a class="research-logo-pill" href="https://zenodo.org" target="_blank">
+        <img src="https://about.zenodo.org/static/img/logos/zenodo-gradient-square.svg"> Zenodo
+      </a>
+
+      <a class="research-logo-pill" href="https://figshare.com" target="_blank">
+        <img src="https://figshare.com/favicon.ico"> Figshare
+      </a>
+
+      <a class="research-logo-pill" href="https://archive.org" target="_blank">
+        <img src="https://archive.org/favicon.ico"> Internet Archive
+      </a>
+    </div>
+
+    <div class="pub-grid-premium">
+
+      <!-- FEDL XAI -->
+      <article class="paper-box paper-blue reveal">
+        <div class="paper-top">
+          <div class="paper-icon"><i class="fas fa-shield-halved"></i></div>
+          <span class="paper-badge">AI Security / FEDL-XAI</span>
+        </div>
+
+        <h3>Federated Explainable Deep Learning Framework for Zero-Day Attack Detection</h3>
+
+        <p class="paper-summary">
+          A privacy-preserving AI cybersecurity framework for detecting unknown attacks in encrypted
+          network traffic environments.
+        </p>
+
+        <div class="paper-description-box">
+          <strong>Paper Description</strong>
           <p>
-            My work focuses on AI cybersecurity, explainable deep learning, theoretical energy systems,
-            open science records, and long-term digital preservation of independent research.
+            FEDL-XAI combines Federated Learning and Explainable Artificial Intelligence to create a
+            security model that can learn from distributed network data without exposing sensitive
+            information. The framework focuses on zero-day attack detection, encrypted traffic analysis,
+            and transparent decision-making so that cybersecurity systems are not only accurate but also
+            interpretable.
           </p>
         </div>
 
-        <div class="pub-stat-grid">
-          <div class="pub-stat"><strong>9+</strong><span>Public Records</span></div>
-          <div class="pub-stat"><strong>3</strong><span>Research Topics</span></div>
-          <div class="pub-stat"><strong>4</strong><span>Platforms</span></div>
-          <div class="pub-stat"><strong>DOI</strong><span>Repository Ready</span></div>
+        <div class="paper-tags">
+          <span>Federated Learning</span>
+          <span>Explainable AI</span>
+          <span>Zero-Day Detection</span>
+          <span>Encrypted Traffic</span>
         </div>
-      </div>
 
-      <div class="pub-group reveal">
-        <div class="pub-title">Journal Publications & Journal-Style Contributions</div>
-
-        <div class="pub-grid">
-          <article class="pub-card pub-green featured">
-            <div class="pub-card-top">
-              <div class="pub-icon"><i class="fas fa-recycle"></i></div>
-              <span class="pub-badge">Journal Contribution</span>
-            </div>
-
-            <h3>Anushrut’s Theory of Total Energy Recirculation</h3>
-
-            <p>
-              A theoretical energy-systems framework that views apparent energy loss as unrecovered
-              transformed energy within a system.
-            </p>
-
-            <div class="paper-description">
-              <strong>Paper Description</strong>
-              <span>
-                This paper introduces recirculation efficiency as a complementary way to evaluate energy
-                systems. Instead of only measuring useful output and loss, it studies how transformed or
-                wasted energy may be recovered, redirected, or reused inside a system.
-              </span>
-            </div>
-
-            <div class="pub-tags">
-              <span>Energy Systems</span>
-              <span>Thermodynamics</span>
-              <span>Efficiency</span>
-              <span>Theory</span>
-            </div>
-
-            <div class="pub-links">
-              <a href="https://figshare.com/articles/journal_contribution/Anushrut_s_Theory_of_Total_Energy_Recirculation/32135992" target="_blank" rel="noopener noreferrer">
-                Figshare <i class="fas fa-arrow-up-right-from-square"></i>
-              </a>
-              <a class="secondary" href="https://zenodo.org/records/19923124" target="_blank" rel="noopener noreferrer">
-                Zenodo <i class="fas fa-fingerprint"></i>
-              </a>
-            </div>
-          </article>
+        <div class="platform-links">
+          <a class="figshare" href="https://figshare.com/articles/preprint/Federated_Explainable_Deep_Learning_Framework/32136790" target="_blank">
+            <img src="https://figshare.com/favicon.ico"> Figshare
+          </a>
+          <a class="zenodo" href="https://zenodo.org/records/19923551" target="_blank">
+            <img src="https://about.zenodo.org/static/img/logos/zenodo-gradient-square.svg"> Zenodo
+          </a>
+          <a class="archive" href="https://archive.org/details/FEDLF" target="_blank">
+            <img src="https://archive.org/favicon.ico"> Archive
+          </a>
+          <a class="ssrn" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371118" target="_blank">
+            SSRN
+          </a>
         </div>
-      </div>
+      </article>
 
-      <div class="pub-group reveal">
-        <div class="pub-title">Preprints & Working Papers</div>
-
-        <div class="pub-grid">
-          <article class="pub-card pub-blue featured">
-            <div class="pub-card-top">
-              <div class="pub-icon"><i class="fas fa-shield-halved"></i></div>
-              <span class="pub-badge">AI Security</span>
-            </div>
-
-            <h3>Federated Explainable Deep Learning Framework for Zero-Day Attack Detection</h3>
-
-            <p>
-              A cybersecurity research work combining federated learning, explainable AI,
-              encrypted traffic analysis, and zero-day attack detection.
-            </p>
-
-            <div class="paper-description">
-              <strong>Paper Description</strong>
-              <span>
-                This paper presents a privacy-preserving deep learning framework for detecting unknown
-                cyberattacks in encrypted network traffic. It uses federated learning for distributed model
-                training and explainable AI to make detection decisions more transparent.
-              </span>
-            </div>
-
-            <div class="pub-tags">
-              <span>Federated Learning</span>
-              <span>XAI</span>
-              <span>Zero-Day Detection</span>
-              <span>Encrypted Traffic</span>
-            </div>
-
-            <div class="pub-links">
-              <a href="https://figshare.com/articles/preprint/Federated_Explainable_Deep_Learning_Framework/32136790" target="_blank" rel="noopener noreferrer">
-                Figshare <i class="fas fa-arrow-up-right-from-square"></i>
-              </a>
-              <a class="secondary" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6371118" target="_blank" rel="noopener noreferrer">
-                SSRN <i class="fas fa-file-lines"></i>
-              </a>
-            </div>
-          </article>
-
-          <article class="pub-card pub-orange">
-            <div class="pub-card-top">
-              <div class="pub-icon"><i class="fas fa-magnet"></i></div>
-              <span class="pub-badge">Engineering Theory</span>
-            </div>
-
-            <h3>Anushrut’s Theory: Magnetically-Assisted Vehicle</h3>
-
-            <p>
-              A concept paper exploring a wheel-less magnetically assisted vehicle idea for reducing
-              friction and electrical energy consumption.
-            </p>
-
-            <div class="paper-description">
-              <strong>Paper Description</strong>
-              <span>
-                This work discusses a theoretical transportation concept where magnetic assistance may
-                reduce surface contact friction and support more efficient motion. It is an early-stage idea
-                for future modelling, simulation, and feasibility testing.
-              </span>
-            </div>
-
-            <div class="pub-tags">
-              <span>Magnetism</span>
-              <span>Vehicle Concept</span>
-              <span>Friction Reduction</span>
-            </div>
-
-            <div class="pub-links">
-              <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6667978" target="_blank" rel="noopener noreferrer">
-                SSRN <i class="fas fa-arrow-up-right-from-square"></i>
-              </a>
-            </div>
-          </article>
-
-          <article class="pub-card pub-purple">
-            <div class="pub-card-top">
-              <div class="pub-icon"><i class="fas fa-bolt"></i></div>
-              <span class="pub-badge">Energy Theory</span>
-            </div>
-
-            <h3>Total Energy Recirculation Working Paper</h3>
-
-            <p>
-              Working-paper version of the total energy recirculation theory prepared for public discovery
-              and academic sharing.
-            </p>
-
-            <div class="paper-description">
-              <strong>Paper Description</strong>
-              <span>
-                This version presents the central concept of energy recirculation in a public preprint format,
-                making the theory accessible for early reading, feedback, and future academic refinement.
-              </span>
-            </div>
-
-            <div class="pub-tags">
-              <span>Preprint</span>
-              <span>Energy Theory</span>
-              <span>Independent Research</span>
-            </div>
-
-            <div class="pub-links">
-              <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6683179" target="_blank" rel="noopener noreferrer">
-                SSRN <i class="fas fa-arrow-up-right-from-square"></i>
-              </a>
-            </div>
-          </article>
+      <!-- MAGNETIC VEHICLE -->
+      <article class="paper-box paper-orange reveal">
+        <div class="paper-top">
+          <div class="paper-icon"><i class="fas fa-magnet"></i></div>
+          <span class="paper-badge">Engineering Concept</span>
         </div>
-      </div>
 
-      <div class="pub-group reveal">
-        <div class="pub-title">Open Repositories & DOI Records</div>
+        <h3>Anushrut Magnetically Assisted Vehicle</h3>
 
-        <div class="pub-grid">
-          <article class="pub-card pub-cyan">
-            <div class="pub-card-top">
-              <div class="pub-icon"><i class="fas fa-fingerprint"></i></div>
-              <span class="pub-badge">Zenodo DOI</span>
-            </div>
+        <p class="paper-summary">
+          A conceptual vehicle model exploring magnetic assistance for reducing mechanical contact,
+          friction, and motion-related energy loss.
+        </p>
 
-            <h3>Zenodo Record 19923124</h3>
-
-            <div class="paper-description">
-              <strong>Record Description</strong>
-              <span>
-                Open repository record supporting long-term access, DOI-style citation visibility,
-                and preservation of the Total Energy Recirculation research work.
-              </span>
-            </div>
-
-            <div class="pub-tags">
-              <span>Zenodo</span>
-              <span>DOI Record</span>
-              <span>Open Science</span>
-            </div>
-
-            <div class="pub-links">
-              <a href="https://zenodo.org/records/19923124" target="_blank" rel="noopener noreferrer">
-                Open Zenodo <i class="fas fa-arrow-up-right-from-square"></i>
-              </a>
-            </div>
-          </article>
-
-          <article class="pub-card pub-cyan">
-            <div class="pub-card-top">
-              <div class="pub-icon"><i class="fas fa-cloud-arrow-up"></i></div>
-              <span class="pub-badge">Zenodo Record</span>
-            </div>
-
-            <h3>Zenodo Record 19923551</h3>
-
-            <div class="paper-description">
-              <strong>Record Description</strong>
-              <span>
-                Additional open repository entry created to improve research discoverability,
-                academic referencing, and public preservation.
-              </span>
-            </div>
-
-            <div class="pub-tags">
-              <span>Repository</span>
-              <span>Preservation</span>
-              <span>Citation Ready</span>
-            </div>
-
-            <div class="pub-links">
-              <a href="https://zenodo.org/records/19923551" target="_blank" rel="noopener noreferrer">
-                Open Zenodo <i class="fas fa-arrow-up-right-from-square"></i>
-              </a>
-            </div>
-          </article>
+        <div class="paper-description-box">
+          <strong>Paper Description</strong>
+          <p>
+            This concept proposes a magnetically assisted transportation idea where magnetic forces may
+            support motion and reduce friction between the vehicle and the surface. It is an early-stage
+            theoretical model intended for future simulation, engineering refinement, and feasibility
+            analysis in low-friction mobility systems.
+          </p>
         </div>
-      </div>
 
-      <div class="pub-group reveal">
-        <div class="pub-title">Preservation Archives</div>
-
-        <div class="pub-grid">
-          <article class="pub-card pub-rose">
-            <div class="pub-card-top">
-              <div class="pub-icon"><i class="fas fa-box-archive"></i></div>
-              <span class="pub-badge">Internet Archive</span>
-            </div>
-
-            <h3>Anushrut’s Theory of Total Energy Recirculation</h3>
-
-            <div class="paper-description">
-              <strong>Archive Description</strong>
-              <span>
-                Internet Archive preservation copy for long-term public access, backup, and availability
-                outside a single publication platform.
-              </span>
-            </div>
-
-            <div class="pub-tags">
-              <span>Archive.org</span>
-              <span>Energy Theory</span>
-              <span>Preservation</span>
-            </div>
-
-            <div class="pub-links">
-              <a href="https://archive.org/details/anushruts-theory-of-total-energy-recirculation" target="_blank" rel="noopener noreferrer">
-                Open Archive <i class="fas fa-box-archive"></i>
-              </a>
-            </div>
-          </article>
-
-          <article class="pub-card pub-blue">
-            <div class="pub-card-top">
-              <div class="pub-icon"><i class="fas fa-shield-halved"></i></div>
-              <span class="pub-badge">Internet Archive</span>
-            </div>
-
-            <h3>FEDLF Research Archive</h3>
-
-            <div class="paper-description">
-              <strong>Archive Description</strong>
-              <span>
-                Archived preservation record for the Federated Explainable Deep Learning Framework
-                research paper, supporting long-term access and academic backup.
-              </span>
-            </div>
-
-            <div class="pub-tags">
-              <span>Archive.org</span>
-              <span>AI Security</span>
-              <span>Backup Record</span>
-            </div>
-
-            <div class="pub-links">
-              <a href="https://archive.org/details/FEDLF" target="_blank" rel="noopener noreferrer">
-                Open Archive <i class="fas fa-box-archive"></i>
-              </a>
-            </div>
-          </article>
+        <div class="paper-tags">
+          <span>Magnetic Motion</span>
+          <span>Vehicle Theory</span>
+          <span>Friction Reduction</span>
+          <span>Energy Efficiency</span>
         </div>
-      </div>
+
+        <div class="platform-links">
+          <a class="ssrn" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6667978" target="_blank">
+            SSRN
+          </a>
+          <a class="zenodo" href="https://zenodo.org/records/19923551" target="_blank">
+            <img src="https://about.zenodo.org/static/img/logos/zenodo-gradient-square.svg"> Zenodo
+          </a>
+        </div>
+      </article>
+
+      <!-- ENERGY RECIRCULATION -->
+      <article class="paper-box paper-green reveal">
+        <div class="paper-top">
+          <div class="paper-icon"><i class="fas fa-recycle"></i></div>
+          <span class="paper-badge">Journal Contribution</span>
+        </div>
+
+        <h3>Anushrut’s Theory of Total Energy Recirculation</h3>
+
+        <p class="paper-summary">
+          A theoretical energy-systems framework that views apparent energy loss as unrecovered
+          transformed energy inside a system.
+        </p>
+
+        <div class="paper-description-box">
+          <strong>Paper Description</strong>
+          <p>
+            This theory introduces the idea of recirculation efficiency as a complementary method for
+            evaluating energy systems. Instead of treating energy loss as simple waste, the theory studies
+            whether transformed energy can be recovered, redirected, reused, or reintegrated into the
+            system to improve overall energy performance.
+          </p>
+        </div>
+
+        <div class="paper-tags">
+          <span>Energy Systems</span>
+          <span>Thermodynamics</span>
+          <span>Efficiency</span>
+          <span>Recirculation Theory</span>
+        </div>
+
+        <div class="platform-links">
+          <a class="figshare" href="https://figshare.com/articles/journal_contribution/Anushrut_s_Theory_of_Total_Energy_Recirculation/32135992" target="_blank">
+            <img src="https://figshare.com/favicon.ico"> Figshare
+          </a>
+          <a class="zenodo" href="https://zenodo.org/records/19923124" target="_blank">
+            <img src="https://about.zenodo.org/static/img/logos/zenodo-gradient-square.svg"> Zenodo
+          </a>
+          <a class="archive" href="https://archive.org/details/anushruts-theory-of-total-energy-recirculation" target="_blank">
+            <img src="https://archive.org/favicon.ico"> Archive
+          </a>
+          <a class="ssrn" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6683179" target="_blank">
+            SSRN
+          </a>
+        </div>
+      </article>
+
     </div>
-  </section>
-
-
+  </div>
+</section>
   <section id="music" class="section">
     <div class="music-inner">
       <div class="music-hero">
