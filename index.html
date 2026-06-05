@@ -245,8 +245,6 @@
 
     #home { min-height: 100svh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 6% 60px; background: var(--white); }
     .hero-wrap { max-width: 640px; }
-    .hero-photo { width: 156px; height: 156px; border-radius: 50%; object-fit: cover; border: 4px solid var(--border); margin-bottom: 28px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); animation: fadeDown 0.7s ease both; }
-    .hero-fallback { width: 156px; height: 156px; border-radius: 50%; background: var(--accent-bg); border: 4px solid var(--border); display: none; align-items: center; justify-content: center; font-size: 3.2rem; color: var(--accent); margin: 0 auto 28px; animation: fadeDown 0.7s ease both; }
     .hero-hi { font-size: 1rem; font-weight: 500; color: var(--muted); margin-bottom: 6px; animation: fadeUp 0.7s 0.15s ease both; opacity: 0; }
     .hero-name { font-size: clamp(2.2rem, 7vw, 3.6rem); font-weight: 700; line-height: 1.1; margin-bottom: 16px; animation: fadeUp 0.7s 0.25s ease both; opacity: 0; }
     .hero-name span { color: var(--accent); }
@@ -782,8 +780,6 @@
 
   <section id="home">
     <div class="hero-wrap">
-      <img src="anushrut.jpg" alt="Anushrut Ghimire" class="hero-photo" onerror="this.style.display='none';document.getElementById('hfb').style.display='flex';" />
-      <div id="hfb" class="hero-fallback"><i class="fas fa-user"></i></div>
       <p class="hero-hi">Hello, I'm</p>
       <h1 class="hero-name"><span>Anushrut Ghimire</span></h1>
       <p class="hero-sub">Science student &amp; independent researcher passionate about Computer Science, AI, Cybersecurity, and creative digital production.</p>
