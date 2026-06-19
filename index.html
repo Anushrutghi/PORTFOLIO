@@ -1527,32 +1527,35 @@
     });
 
     const skills = [
-      { i:'fab fa-python', c:'#f59e0b', n:'Python', s:'Automation · Logic' },
-      { i:'fas fa-code', c:'#3b82f6', n:'C Programming', s:'Structures · Memory' },
-      { i:'fab fa-linux', c:'#374151', n:'Kali Linux', s:'Security · CLI' },
-      { i:'fas fa-brain', c:'#8b5cf6', n:'Multi-Agent AI', s:'Agents · Automation' },
-      { i:'fas fa-network-wired', c:'#06b6d4', n:'Wireshark', s:'Traffic Analysis' },
-      { i:'fas fa-chart-line', c:'#22c55e', n:'Data Analysis', s:'Excel · Viz' },
-      { i:'fab fa-google', c:'#ef4444', n:'Google Analytics', s:'Tracking · Reports' },
-      { i:'fas fa-shield-alt', c:'#6366f1', n:'Cybersecurity', s:'Network · Hacking' },
-      { i:'fas fa-balance-scale', c:'#d97706', n:'AI Governance', s:'Ethics · Compliance' },
-      { i:'fas fa-globe', c:'#2563eb', n:'UN Safety Policy', s:'WAM · DDR' },
-      { i:'fas fa-atom', c:'#ec4899', n:'Nanomaterials', s:'Lab · Protocol' },
-      { i:'fas fa-search', c:'#f97316', n:'Research', s:'Analysis · Reporting' },
-      { i:'fas fa-user-secret', c:'#84cc16', n:'Ethical Hacking', s:'Kali · Practice' },
-      { i:'fas fa-binoculars', c:'#10b981', n:'Recon & Scanning', s:'Footprinting' },
-      { i:'fas fa-terminal', c:'#38bdf8', n:'Linux Security', s:'Hardening' },
-      { i:'fas fa-bug', c:'#f87171', n:'Vulnerability', s:'Flaws · Mitigation' },
-      { i:'fas fa-comments', c:'#34d399', n:'Communication', s:'Technical Writing' },
-    ];
-    const g = document.getElementById('skillsGrid');
-    skills.forEach((s, i) => {
-      const el = document.createElement('div');
-      el.className = 'sk reveal';
-      el.style.transitionDelay = (i * 0.035) + 's';
-      el.innerHTML = `<i class="${s.i}" style="color:${s.c}"></i><strong>${s.n}</strong><small>${s.s}</small>`;
-      g.appendChild(el);
-    });
+  { i:'fab fa-python', c:'#f59e0b', n:'Python', s:'Automation · Logic' },
+  { i:'fas fa-code', c:'#3b82f6', n:'C Programming', s:'Structures · Memory' },
+  { i:'fab fa-linux', c:'#374151', n:'Kali Linux', s:'Security · CLI' },
+  { i:'fas fa-brain', c:'#8b5cf6', n:'Multi-Agent AI', s:'Agents · Automation' },
+  { i:'fas fa-network-wired', c:'#06b6d4', n:'Wireshark', s:'Traffic Analysis' },
+  { i:'fas fa-chart-line', c:'#22c55e', n:'Data Analysis', s:'Excel · Viz' },
+  { i:'fab fa-google', c:'#ef4444', n:'Google Analytics', s:'Tracking · Reports' },
+  { i:'fas fa-shield-alt', c:'#6366f1', n:'Cybersecurity', s:'Network · Hacking' },
+  { i:'fas fa-balance-scale', c:'#d97706', n:'AI Governance', s:'Ethics · Compliance' },
+  { i:'fas fa-globe', c:'#2563eb', n:'UN Safety Policy', s:'WAM · DDR' },
+  { i:'fas fa-atom', c:'#ec4899', n:'Nanomaterials', s:'Lab · Protocol' },
+  { i:'fas fa-search', c:'#f97316', n:'Research', s:'Analysis · Reporting' },
+  { i:'fas fa-user-secret', c:'#84cc16', n:'Ethical Hacking', s:'Kali · Practice' },
+  { i:'fas fa-binoculars', c:'#10b981', n:'Recon & Scanning', s:'Footprinting' },
+  { i:'fas fa-terminal', c:'#38bdf8', n:'Linux Security', s:'Hardening' },
+  { i:'fas fa-bug', c:'#f87171', n:'Vulnerability', s:'Flaws · Mitigation' },
+  { i:'fas fa-comments', c:'#34d399', n:'Communication', s:'Technical Writing' },
+  { i:'fas fa-robot', c:'#6366f1', n:'Claude AI (Anthropic)', s:'AI Fluency · Prompting' },
+  { i:'fas fa-cloud', c:'#0ea5e9', n:'AWS Cloud Practitioner', s:'Cloud · Fundamentals' },
+];
+
+const g = document.getElementById('skillsGrid');
+skills.forEach((s, i) => {
+  const el = document.createElement('div');
+  el.className = 'sk reveal';
+  el.style.transitionDelay = (i * 0.035) + 's';
+  el.innerHTML = `<i class="${s.i}" style="color:${s.c}"></i><strong>${s.n}</strong><small>${s.s}</small>`;
+  g.appendChild(el);
+});
 
     const obs = new IntersectionObserver(es => {
       es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
